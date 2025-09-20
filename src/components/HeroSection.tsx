@@ -19,7 +19,7 @@ const HeroSection = () => {
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
                 <span className="gradient-hero bg-clip-text text-transparent">
-                  Souzana Hamza \n AI Engineer & Data Scientist
+                  Souzana Hamza <br /> AI Engineer & Data Scientist
                 </span>
               </h1>
               
