@@ -14,7 +14,7 @@ const ContactSection = () => {
       icon: Linkedin,
       label: 'Connect on LinkedIn',
       value: 'linkedin.com/in/souzana-hamza',
-      href: 'https://linkedin.com/in/souzana-hamza',
+      href: 'https://www.linkedin.com/in/souzana-hamza-508a30225/',
       color: 'text-blue-500'
     },
     {
