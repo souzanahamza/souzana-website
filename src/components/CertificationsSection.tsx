@@ -6,11 +6,20 @@ import { Award, ExternalLink, Calendar, CheckCircle } from 'lucide-react';
 const CertificationsSection = () => {
   const certifications = [
     {
+      title: 'Retrieval Augmented Generation (RAG)',
+      issuer: 'DeepLearning.AI',
+      issued: 'September 2025',
+      credentialId: '16TZPNIGGYZ2',
+      skills: ['RAG', 'Generative AI', 'LLMs', 'Prompt Engineering'], 
+      category: 'AI/ML',
+      certificateUrl: 'https://www.coursera.org/account/accomplishments/verify/16TZPNIGGYZ2'
+    },
+    {
       title: 'Generative AI with Large Language Models',
       issuer: 'DeepLearning.AI & Amazon Web Services',
       issued: 'April 2025',
       credentialId: '26KWP2A8QODD',
-      skills: ['Artificial Intelligence (AI)', 'Large Language Models (LLMs)'],
+      skills: ['Artificial Intelligence (AI)', 'Large Language Models (LLMs)','Generative AI',],
       category: 'AI/ML',
       certificateUrl: 'https://www.coursera.org/account/accomplishments/certificate/26KWP2A8QODD'
     },
