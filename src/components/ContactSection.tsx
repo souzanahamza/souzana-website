@@ -6,8 +6,8 @@ const ContactSection = () => {
     {
       icon: Mail,
       label: 'Email Me',
-      value: 'souzana.hamza@email.com',
-      href: 'mailto:souzana.hamza@email.com',
+      value: 'souzana.hamze@email.com',
+      href: 'mailto:souzana.hamze@email.com',
       color: 'text-primary'
     },
     {
