@@ -21,7 +21,7 @@ const ProjectsSection = () => {
   icon: Printer,
   category: "SaaS/Full-Stack",
   demoLink: "https://print-flow-ten.vercel.app/"
-    }
+    },
     {
       title: "Information Extraction from Arabic Invoices",
       description: "AI system that converts Arabic invoices into clean, structured business data (JSON/CSV). Classifies mobile vs. scanned, fixes perspective, extracts key fields via an interactive UI. Business impact: cuts manual entry, reduces errors, and speeds finance operations.",
