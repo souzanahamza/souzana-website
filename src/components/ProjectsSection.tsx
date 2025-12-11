@@ -1,11 +1,10 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, TrendingUp, BarChart3, Database, FileText, Type, ShoppingBag, Globe } from 'lucide-react';
+import { ExternalLink, Github, TrendingUp, BarChart3, Database, FileText, Type, ShoppingBag, Globe, Printer } from 'lucide-react';
 
 const ProjectsSection = () => {
   const projects = [
-
     {
       title: "SmartShop Multimodal RAG Assistant",
       description: "Engineered a high-performance Multimodal RAG pipeline. Utilized 'intfloat/e5' for dense text retrieval and 'CLIP ViT' for visual semantic search. Integrated 'Gemini Flash' for real-time, context-aware reasoning within a Supabase-backed architecture. Delivers instant recommendations via a seamless React interface.",
@@ -15,12 +14,12 @@ const ProjectsSection = () => {
       demoLink: "https://smart-shop-website.vercel.app/"
     },
     {
-  title: "Print Shop SaaS ERP",
-  description: "Engineered a comprehensive SaaS solution orchestrating the entire print order lifecycle. Implemented a complex state-machine workflow connecting Sales, Design, Accounting, and Production. Features include a robust multi-currency financial system with exchange rate snapshots, automated file versioning/archiving, and strict Row-Level Security (RLS) for data protection.",
-  technologies: ["React", "TypeScript", "Supabase (DB & Auth)", "TanStack Query", "Tailwind CSS"],
-  icon: Printer,
-  category: "SaaS/Full-Stack",
-  demoLink: "https://print-flow-ten.vercel.app/"
+      title: "Printava | Print Shop SaaS ERP",
+      description: "Engineered a comprehensive SaaS solution orchestrating the entire print order lifecycle. Implemented a complex state-machine workflow connecting Sales, Design, Accounting, and Production. Features include a robust multi-currency financial system with exchange rate snapshots, automated file versioning, and strict Row-Level Security (RLS).",
+      technologies: ["React", "TypeScript", "Supabase", "TanStack Query", "Tailwind CSS"],
+      icon: Printer,
+      category: "SaaS/Full-Stack",
+      demoLink: "https://print-flow-ten.vercel.app/"
     },
     {
       title: "Information Extraction from Arabic Invoices",
