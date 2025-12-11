@@ -7,8 +7,8 @@ const ProjectsSection = () => {
   const projects = [
     {
       title: "SmartShop Multimodal RAG Assistant",
-      description: "Engineered a production-ready Multimodal RAG pipeline fusing visual and semantic search. Architected a hybrid data layer using Qdrant for vector retrieval and Supabase to manage product catalogs and persistent conversational memory. The system orchestrates CLIP embeddings and Google Gemini to deliver context-aware recommendations via a seamless React interface.",
-      technologies: ["Multimodal AI", "RAG", "Supabase", "CLIP", "Google Gemini", "React"],
+      description: "Engineered a high-performance Multimodal RAG pipeline. Utilized 'intfloat/e5' for dense text retrieval and 'CLIP ViT' for visual semantic search. Integrated 'Gemini Flash' for real-time, context-aware reasoning within a Supabase-backed architecture. Delivers instant recommendations via a seamless React interface.",
+      technologies: ["Multimodal RAG", "Gemini Flash", "CLIP ViT", "Qdrant", "Supabase", "React"],
       icon: ShoppingBag,
       category: "AI/GenAI & E-commerce",
       demoLink: "https://smart-shop-website.vercel.app/"
