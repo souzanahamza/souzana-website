@@ -15,10 +15,12 @@ const ProjectsSection = () => {
     },
     {
       title: "Printava | Print Shop SaaS ERP",
-      description: "Engineered a comprehensive SaaS solution orchestrating the entire print order lifecycle. Implemented a complex state-machine workflow connecting Sales, Design, Accounting, and Production. Features include a robust multi-currency financial system with exchange rate snapshots, automated file versioning, and strict Row-Level Security (RLS).",
+      // أضفت هنا جملة (Currently in active development) بالوصف
+      description: "Currently in active development 🚧. Engineered a comprehensive SaaS solution orchestrating the entire print order lifecycle. Implemented a complex state-machine workflow connecting Sales, Design, Accounting, and Production. Features include a robust multi-currency financial system, exchange rate snapshots, and strict Row-Level Security (RLS).",
       technologies: ["React", "TypeScript", "Supabase", "TanStack Query", "Tailwind CSS"],
       icon: Printer,
-      category: "SaaS/Full-Stack",
+      // غيرت الكاتيجوري لتوضح انو قيد العمل
+      category: "SaaS / In Development",
       demoLink: "https://print-flow-ten.vercel.app/"
     },
     {
@@ -78,9 +80,11 @@ const ProjectsSection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => {
             const IconComponent = project.icon;
-            // Determine if it's a demo link or github link to adjust button style/icon
             const hasDemo = !!project.demoLink;
             const linkUrl = project.demoLink || project.githubLink;
+            
+            // تحقق بسيط: هل هذا المشروع هو Printava؟
+            const isUnderDev = project.title.includes("Printava");
 
             return (
               <Card 
@@ -95,7 +99,10 @@ const ProjectsSection = () => {
                       <div className="p-3 bg-primary/10 rounded-xl">
                         <IconComponent className="w-6 h-6 text-primary" />
                       </div>
-                      <Badge variant="secondary" className="text-xs">
+                      <Badge 
+                        variant={isUnderDev ? "outline" : "secondary"} 
+                        className={`text-xs ${isUnderDev ? "border-yellow-500 text-yellow-600" : ""}`}
+                      >
                         {project.category}
                       </Badge>
                     </div>
@@ -130,7 +137,7 @@ const ProjectsSection = () => {
                       {hasDemo ? (
                         <>
                           <Globe className="w-4 h-4 mr-2" />
-                          View Live Demo
+                          {isUnderDev ? "View Beta Demo" : "View Live Demo"}
                         </>
                       ) : (
                         <>
