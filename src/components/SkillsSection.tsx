@@ -1,68 +1,74 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Brain, Database, Code, BarChart3, Cog, Eye, Settings, Smartphone } from 'lucide-react';
+import { Brain, Database, Code, BarChart3, Cog, Eye, Settings, Smartphone, Layers } from 'lucide-react';
 
 const SkillsSection = () => {
   const skillCategories = [
     {
       title: "Programming Languages",
       icon: Code,
-      skills: ["Python (Advanced)", "Dart (Advanced)", "HTML/CSS & JavaScript (Intermediate)", "C++, Java (Basic)"]
+      // أضفنا TypeScript و SQL بشكل صريح
+      skills: ["Python (Advanced)", "Dart (Advanced)", "TypeScript & JavaScript", "SQL", "C++ & Java (Basic)"]
     },
     {
       title: "AI & Machine Learning",
       icon: Brain,
       skills: [
         "Predictive Modeling & Time-Series Analysis",
+        "Generative AI, LLMs (Gemini, OpenAI) & RAG", // Updated
+        "Vector Databases (Qdrant, Pinecone)", // New for SmartShop
+        "Multimodal AI (CLIP Embeddings)", // New for SmartShop
         "Machine Learning & Feature Engineering", 
         "Ensemble & Deep Learning Methods",
         "Natural Language Processing (NLP)",
-        "Generative AI & Large Language Models (LLMs)",
-        "Retrieval-Augmented Generation (RAG)",
         "Model Evaluation"
+      ]
+    },
+    {
+      title: "Full-Stack & Mobile Development", // Renamed from Mobile & Software
+      icon: Smartphone, // Or stick with Smartphone, or change to Layers
+      skills: [
+        "Flutter (Cross-platform, Bloc/GetX)",
+        "React.js & Tailwind CSS", // New for Printava
+        "Backend-as-a-Service (Supabase, Firebase)", // New for Printava
+        "State Management (TanStack Query, Provider)", // New
+        "SaaS Architecture & RBAC Security", // New for Printava
+        "REST APIs & SQLite integration"
       ]
     },
     {
       title: "Data Analysis & Processing",
       icon: BarChart3,
       skills: [
-        "Data Cleaning & Transformation, Exploratory Data Analysis (EDA)",
-        "Data Visualization & Storytelling",
-        "Excel-based analysis & financial modeling",
-        "Jupyter Notebook, Google Colab"
+        "Data Cleaning, EDA & Visualization",
+        "Financial Modeling & Excel Analysis",
+        "Pandas, NumPy, Matplotlib, Seaborn",
+        "Jupyter Notebook & Google Colab"
       ]
     },
     {
       title: "Automation & Data Engineering", 
       icon: Cog,
       skills: [
-        "Web Scraping (Python, Scrapy)",
+        "Web Scraping (Python, Scrapy, Selenium)",
         "Workflow Automation (n8n, Python pipelines)",
-        "SQL Databases",
-        "APIs Integration (REST APIs, LLM APIs, JSON/CSV/Parquet export)"
+        "ETL Pipelines & Structured Data Export",
+        "APIs Integration (REST, LLM APIs)"
       ]
     },
     {
       title: "Computer Vision",
       icon: Eye,
-      skills: ["OpenCV for preprocessing, feature extraction & object recognition"]
-    },
-    {
-      title: "Mobile & Software Development",
-      icon: Smartphone,
-      skills: [
-        "Flutter (cross-platform apps, Bloc/Provider/GetX)",
-        "Firebase, REST APIs, SQLite integration",
-        "UI/UX basics, responsive design, debugging & troubleshooting"
-      ]
+      skills: ["OpenCV (Preprocessing & Recognition)", "Image Embeddings & Semantic Search"]
     },
     {
       title: "Tools & Collaboration",
       icon: Settings,
       skills: [
-        "Git/GitHub (version control & team workflows)",
+        "Git/GitHub (CI/CD basics)",
         "Agile/Scrum methodologies", 
-        "Beginner knowledge in AWS services"
+        "PostgreSQL (via Supabase)",
+        "VS Code, Android Studio, Xcode"
       ]
     }
   ];
