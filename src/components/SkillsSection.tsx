@@ -1,73 +1,75 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Brain, Database, Code, BarChart3, Cog, Eye, Settings, Smartphone, Layers } from 'lucide-react';
+import { Brain, Database, Code, BarChart3, Cog, Eye, Settings, Smartphone } from 'lucide-react';
 
 const SkillsSection = () => {
   const skillCategories = [
     {
       title: "Programming Languages",
       icon: Code,
-      // أضفنا TypeScript و SQL بشكل صريح
+      // الأساسيات فقط هنا
       skills: ["Python (Advanced)", "Dart (Advanced)", "TypeScript & JavaScript", "SQL", "C++ & Java (Basic)"]
     },
     {
       title: "AI & Machine Learning",
       icon: Brain,
+      // كل ما يتعلق بالنماذج والذكاء
       skills: [
-        "Predictive Modeling & Time-Series Analysis",
-        "Generative AI, LLMs (Gemini, OpenAI) & RAG", // Updated
-        "Vector Databases (Qdrant, Pinecone)", // New for SmartShop
-        "Multimodal AI (CLIP Embeddings)", // New for SmartShop
-        "Machine Learning & Feature Engineering", 
-        "Ensemble & Deep Learning Methods",
-        "Natural Language Processing (NLP)",
-        "Model Evaluation"
+        "Generative AI, LLMs (Gemini, OpenAI) & RAG",
+        "Vector Databases (Qdrant, Pinecone)",
+        "Multimodal AI (CLIP Embeddings)",
+        "Predictive Modeling & Time-Series",
+        "NLP & Text Analysis",
+        "Deep Learning & Ensembles"
       ]
     },
     {
-      title: "Full-Stack & Mobile Development", // Renamed from Mobile & Software
-      icon: Smartphone, // Or stick with Smartphone, or change to Layers
+      title: "Full-Stack & Mobile Dev",
+      icon: Smartphone,
+      // أطر العمل وبناء الأنظمة
       skills: [
         "Flutter (Cross-platform, Bloc/GetX)",
-        "React.js & Tailwind CSS", // New for Printava
-        "Backend-as-a-Service (Supabase, Firebase)", // New for Printava
-        "State Management (TanStack Query, Provider)", // New
-        "SaaS Architecture & RBAC Security", // New for Printava
-        "REST APIs & SQLite integration"
+        "React.js, Tailwind CSS & Vite",
+        "Supabase (Auth, DB, Realtime)",
+        "State Management (TanStack Query)",
+        "SaaS Architecture & RBAC"
       ]
     },
     {
-      title: "Data Analysis & Processing",
+      title: "Data Analysis & Finance",
       icon: BarChart3,
+      // تحليل البيانات والأرقام
       skills: [
-        "Data Cleaning, EDA & Visualization",
-        "Financial Modeling & Excel Analysis",
-        "Pandas, NumPy, Matplotlib, Seaborn",
-        "Jupyter Notebook & Google Colab"
+        "Financial Modeling & Excel",
+        "Data Visualization & Storytelling",
+        "Pandas, NumPy, Matplotlib",
+        "Exploratory Data Analysis (EDA)"
       ]
     },
     {
-      title: "Automation & Data Engineering", 
+      title: "Automation & Engineering", 
       icon: Cog,
+      // نقل البيانات والأتمتة
       skills: [
-        "Web Scraping (Python, Scrapy, Selenium)",
-        "Workflow Automation (n8n, Python pipelines)",
-        "ETL Pipelines & Structured Data Export",
-        "APIs Integration (REST, LLM APIs)"
+        "Web Scraping (Scrapy, Selenium)",
+        "Workflow Automation (n8n)",
+        "ETL Pipelines & Data Export",
+        "API Integrations & Webhooks"
       ]
     },
     {
       title: "Computer Vision",
       icon: Eye,
-      skills: ["OpenCV (Preprocessing & Recognition)", "Image Embeddings & Semantic Search"]
+      // المعالجة البصرية البحتة
+      skills: ["OpenCV (Preprocessing, Detection)", "Object Recognition"]
     },
     {
-      title: "Tools & Collaboration",
+      title: "Tools & DevOps",
       icon: Settings,
+      // أدوات المساعدة
       skills: [
-        "Git/GitHub (CI/CD basics)",
-        "Agile/Scrum methodologies", 
-        "PostgreSQL (via Supabase)",
+        "Git/GitHub & CI/CD Basics",
+        "Agile/Scrum Workflows", 
         "VS Code, Android Studio, Xcode"
       ]
     }
@@ -84,9 +86,8 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="py-20 bg-muted/30">
       <div className="container mx-auto px-6">
-        {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Left Column - Sticky Header */}
+          {/* Left Column */}
           <div className="lg:col-span-4 lg:sticky lg:top-24 lg:self-start">
             <div className="space-y-6">
               <div>
@@ -101,7 +102,7 @@ const SkillsSection = () => {
             </div>
           </div>
 
-          {/* Right Column - Stacked Cards */}
+          {/* Right Column */}
           <div className="lg:col-span-8 space-y-4">
             {skillCategories.map((category, index) => {
               const IconComponent = category.icon;
@@ -112,7 +113,6 @@ const SkillsSection = () => {
                   style={{ top: `${80 + index * 20}px` }}
                 >
                   <div className="p-6">
-                    {/* Card Header */}
                     <div className="flex items-center space-x-3 mb-6">
                       <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
                         <IconComponent className="w-5 h-5 text-primary" />
@@ -121,7 +121,6 @@ const SkillsSection = () => {
                       <div className="flex-1 h-px bg-border"></div>
                     </div>
                     
-                    {/* Skills as Badges */}
                     <div className="flex flex-wrap gap-2">
                       {category.skills.map((skill, skillIndex) => (
                         <Badge 
@@ -138,7 +137,7 @@ const SkillsSection = () => {
               );
             })}
 
-            {/* Soft Skills Card */}
+            {/* Soft Skills */}
             <Card 
               className="shadow-card hover:shadow-glow transition-smooth sticky"
               style={{ top: `${80 + skillCategories.length * 20}px` }}
