@@ -1,10 +1,18 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, TrendingUp, BarChart3, Database, FileText, Type } from 'lucide-react';
+import { ExternalLink, Github, TrendingUp, BarChart3, Database, FileText, Type, ShoppingBag, Globe } from 'lucide-react';
 
 const ProjectsSection = () => {
   const projects = [
+    {
+      title: "SmartShop Multimodal RAG Assistant",
+      description: "Engineered a production-ready Multimodal RAG pipeline fusing visual and semantic search. Architected a hybrid data layer using Qdrant for vector retrieval and Supabase to manage product catalogs and persistent conversational memory. The system orchestrates CLIP embeddings and Google Gemini to deliver context-aware recommendations via a seamless React interface.",
+      technologies: ["Multimodal AI", "RAG", "Supabase", "CLIP", "Google Gemini", "React"],
+      icon: ShoppingBag,
+      category: "AI/GenAI & E-commerce",
+      demoLink: "https://smart-shop-website.vercel.app/"
+    },
     {
       title: "Information Extraction from Arabic Invoices",
       description: "AI system that converts Arabic invoices into clean, structured business data (JSON/CSV). Classifies mobile vs. scanned, fixes perspective, extracts key fields via an interactive UI. Business impact: cuts manual entry, reduces errors, and speeds finance operations.",
@@ -62,6 +70,10 @@ const ProjectsSection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {projects.map((project, index) => {
             const IconComponent = project.icon;
+            // Determine if it's a demo link or github link to adjust button style/icon
+            const hasDemo = !!project.demoLink;
+            const linkUrl = project.demoLink || project.githubLink;
+
             return (
               <Card 
                 key={index} 
@@ -105,10 +117,19 @@ const ProjectsSection = () => {
                       variant="ghost" 
                       size="sm" 
                       className="w-full"
-                      onClick={() => window.open(project.githubLink, '_blank')}
+                      onClick={() => window.open(linkUrl, '_blank')}
                     >
-                      <Github className="w-4 h-4 mr-2" />
-                      View Code
+                      {hasDemo ? (
+                        <>
+                          <Globe className="w-4 h-4 mr-2" />
+                          View Live Demo
+                        </>
+                      ) : (
+                        <>
+                          <Github className="w-4 h-4 mr-2" />
+                          View Code
+                        </>
+                      )}
                     </Button>
                   </div>
                 </div>
