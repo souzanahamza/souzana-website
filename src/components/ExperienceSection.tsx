@@ -5,6 +5,18 @@ import { MapPin, Calendar, Building } from 'lucide-react';
 const ExperienceSection = () => {
   const experiences = [
     {
+      title: 'AI Engineer',
+      company: 'Brain Socket',
+      location: 'Damascus (Full-time)',
+      period: 'Jul 2025 – Present',
+      description: 'Spearheading the integration of Generative AI into enterprise systems, focusing on intelligent agents and knowledge retrieval.',
+      achievements: [
+        'Designed and developed scalable GenAI solutions utilizing LangChain and RAG architectures to enhance enterprise information retrieval.',
+        'Engineered automated workflows by integrating LLM agents with RESTful APIs, PostgreSQL, and internal business tools.',
+        'Optimized LLM performance through prompt engineering and fine-tuning, significantly reducing response latency and API costs.'
+      ]
+    },
+    {
       title: 'Data Scientist – Financial Market Algorithms',
       company: 'beIN Media / Nmo AI',
       location: 'Remote · Kuwait',
