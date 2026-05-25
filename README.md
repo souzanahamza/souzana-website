@@ -1,73 +1,66 @@
-# Welcome to your Lovable project
+# Souzana Hamza — Portfolio
 
-## Project info
+Personal portfolio site for **Souzana Hamza**, AI Engineer & Data Scientist. A single-page site with experience, education, projects, certifications, skills, and contact sections, with light/dark theme support.
 
-**URL**: https://lovable.dev/projects/dd3e5d55-5668-4b87-8b0d-9f667f41a48a
+**Live site:** [souzana-hamza.vercel.app](https://souzana-hamza.vercel.app)
 
-## How can I edit this code?
+## Tech stack
 
-There are several ways of editing your application.
+- [Vite](https://vitejs.dev/) + [React](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
+- [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) (Radix primitives)
+- [React Router](https://reactrouter.com/) for routing
+- [TanStack Query](https://tanstack.com/query), [React Hook Form](https://react-hook-form.com/) + [Zod](https://zod.dev/)
 
-**Use Lovable**
+## Prerequisites
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/dd3e5d55-5668-4b87-8b0d-9f667f41a48a) and start prompting.
+- [Node.js](https://nodejs.org/) 18+ (npm included)
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
+## Local development
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+cd souzana-website
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The dev server runs at [http://localhost:8080](http://localhost:8080) (see `vite.config.ts`).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Scripts
 
-**Use GitHub Codespaces**
+| Command | Description |
+| --- | --- |
+| `npm run dev` | Start Vite dev server with HMR |
+| `npm run build` | Production build to `dist/` |
+| `npm run build:dev` | Build in development mode |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | Run ESLint |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Project structure
 
-## What technologies are used for this project?
+```
+src/
+├── components/       # Page sections (Hero, Experience, Projects, etc.)
+│   └── ui/           # shadcn/ui components
+├── pages/            # Route pages (Index, NotFound)
+├── providers/        # ThemeProvider (next-themes)
+├── hooks/            # Shared hooks
+├── lib/              # Utilities (e.g. cn)
+└── assets/           # Images and static assets
+```
 
-This project is built with:
+Content for each section lives in the corresponding component under `src/components/`. Update those files to change copy, links, or portfolio items.
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## Deployment
 
-## How can I deploy this project?
+Build the static site:
 
-Simply open [Lovable](https://lovable.dev/projects/dd3e5d55-5668-4b87-8b0d-9f667f41a48a) and click on Share -> Publish.
+```sh
+npm run build
+```
 
-## Can I connect a custom domain to my Lovable project?
+Deploy the `dist/` folder to any static host (e.g. [Vercel](https://vercel.com/), Netlify, GitHub Pages). The project is configured for Vercel in production metadata (`index.html` Open Graph URLs).
 
-Yes, you can!
+## License
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+Private portfolio project. All rights reserved unless otherwise noted.
