@@ -33,7 +33,7 @@ const HeroSection = () => {
               </h1>
               
               <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-                I turn caffeine and chaotic spreadsheets into AI that actually makes money. Double Major in Artificial Intelligence and Finance & Banking — so I can both build the model <em>and</em> explain why it's worth the budget. I ship predictive models, AI agents that don't talk back (much), automated workflows, and software that scales while I sleep.
+                I build AI solutions that turn data into real business value. With a double major in Artificial Intelligence and Finance & Banking, I can both develop the model <em>and</em> explain its impact on the bottom line. I ship predictive models, AI agents, automated workflows, and software built to scale.
               </p>
 
               {/* Quick Highlights Badges */}
