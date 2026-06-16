@@ -152,9 +152,9 @@ const ProjectsSection = () => {
                       </Button>
                     )}
                     <Button
-                      variant="ghost"
+                      variant="outline"
                       size="sm"
-                      className="w-full text-muted-foreground hover:text-primary"
+                      className="w-full border-primary/40 text-primary transition-smooth hover:bg-primary hover:text-primary-foreground hover:border-primary"
                       onClick={() => window.open(linkUrl, '_blank')}
                     >
                       {hasDemo ? (
