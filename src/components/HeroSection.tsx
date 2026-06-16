@@ -1,10 +1,6 @@
-import { Button } from '@/components/ui/button';
-import { ArrowRight, Mail, ExternalLink } from 'lucide-react';
-import souzanaPortrait from '@/assets/souzana-portrait.jpg';
-
 const HeroSection = () => {
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
@@ -12,71 +8,63 @@ const HeroSection = () => {
         <div className="absolute -bottom-8 left-20 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-500"></div>
       </div>
 
-      <div className="container mx-auto px-6 py-20">
+      {/* Floating Emoji Mascots */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <span className="absolute top-24 left-[12%] text-4xl animate-float-around select-none">🤖</span>
+        <span className="absolute top-1/3 right-[10%] text-5xl animate-float-around select-none" style={{ animationDelay: '1.5s', animationDuration: '14s' }}>📊</span>
+        <span className="absolute bottom-28 left-[18%] text-4xl animate-float-around select-none" style={{ animationDelay: '3s', animationDuration: '10s' }}>☕</span>
+        <span className="absolute bottom-1/3 right-[16%] text-3xl animate-float-around select-none" style={{ animationDelay: '0.8s', animationDuration: '13s' }}>✨</span>
+        <span className="absolute top-1/2 left-[6%] text-3xl animate-float-around select-none" style={{ animationDelay: '2.2s', animationDuration: '11s' }}>💸</span>
+      </div>
+
+      <div className="container mx-auto px-6 pt-20 flex-1 flex items-center">
         <div className="max-w-4xl mx-auto text-center">
           {/* Content */}
           <div className="space-y-8 animate-fade-in-up">
             <div className="space-y-6">
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
                 <span className="gradient-hero bg-clip-text text-transparent">
-                  Souzana Hamza <br /> AI Engineer & Data Scientist
+                  Souzana Hamza
+                </span>
+                <span className="animate-wave ml-2">👋</span>
+                <span className="gradient-hero bg-clip-text text-transparent">
+                  <br /> AI Engineer & Data Scientist
                 </span>
               </h1>
               
               <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-                I turn data into decisions and AI into business value. With a Double Major in Artificial Intelligence and Finance & Banking, I build predictive models, AI agents, automate workflows, and deliver scalable software.
+                I turn caffeine and chaotic spreadsheets into AI that actually makes money. Double Major in Artificial Intelligence and Finance & Banking — so I can both build the model <em>and</em> explain why it's worth the budget. I ship predictive models, AI agents that don't talk back (much), automated workflows, and software that scales while I sleep.
               </p>
 
               {/* Quick Highlights Badges */}
               <div className="flex flex-wrap justify-center gap-3 mt-8">
-                <div className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary">
-                  AI × Finance Bridge
+                <div className="hover-wiggle cursor-default px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary">
+                  🧠 Fluent in AI × Finance
                 </div>
-                <div className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary">
-                  Predictive & Analytics
+                <div className="hover-wiggle cursor-default px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary">
+                  🔮 Predicts the future (statistically)
                 </div>
-                <div className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary">
-                  AI Agents
+                <div className="hover-wiggle cursor-default px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary">
+                  🤖 Trains AI agents to behave
                 </div>
-                <div className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary">
-                  Automation & Data Pipelines
+                <div className="hover-wiggle cursor-default px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary">
+                  😴 Automates the boring stuff
                 </div>
               </div>
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg" className="gradient-button shadow-button animate-pulse-glow" asChild>
-                <a href="#projects" className="flex items-center justify-center gap-2">
-                  View Projects
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-              </Button>
-              <Button variant="outline" size="lg" asChild>
-                <a href="#contact" className="flex items-center justify-center gap-2">
-                  <Mail className="w-5 h-5" />
-                  Contact Me
-                </a>
-              </Button>
-              <Button variant="ghost" size="lg" asChild>
-                <a href="https://drive.google.com/file/d/1tQaCY5FmV0vgXZCp4C1oxZyoVl9yMItF/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                  <ExternalLink className="w-5 h-5" />
-                  Download CV
-                </a>
-              </Button>
             </div>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+      <a href="#projects" className="group relative z-10 flex flex-col items-center gap-2 pt-12 pb-8 text-muted-foreground hover:text-primary transition-smooth">
+        <span className="text-xs font-medium opacity-70 group-hover:opacity-100">scroll, I worked hard on this 👇</span>
         <div className="animate-bounce">
-          <div className="w-6 h-10 border-2 border-muted-foreground rounded-full p-1">
-            <div className="w-1 h-3 bg-muted-foreground rounded-full mx-auto animate-pulse"></div>
+          <div className="w-6 h-10 border-2 border-current rounded-full p-1">
+            <div className="w-1 h-3 bg-current rounded-full mx-auto animate-pulse"></div>
           </div>
         </div>
-      </div>
+      </a>
     </section>
   );
 };

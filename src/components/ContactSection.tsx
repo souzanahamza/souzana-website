@@ -79,13 +79,13 @@ const ContactSection = () => {
             </div>
 
             {/* Availability Status */}
-            <Card className="p-6 shadow-card gradient-card border-border/50 max-w-md mx-auto">
+            <Card className="hover-wiggle p-6 shadow-card gradient-card border-border/50 max-w-md mx-auto">
               <div className="flex items-center gap-4 justify-center">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                 <div className="text-center">
-                  <h4 className="font-semibold text-foreground">Available for opportunities</h4>
+                  <h4 className="font-semibold text-foreground">Currently accepting job offers 🚀</h4>
                   <p className="text-sm text-muted-foreground">
-                    Open to remote roles and relocation
+                    Open to remote roles, relocation, and free coffee ☕
                   </p>
                 </div>
               </div>

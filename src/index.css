@@ -189,11 +189,52 @@
     }
   }
 
+  /* Playful animations */
+  @keyframes wave {
+    0%, 60%, 100% { transform: rotate(0deg); }
+    10%, 30% { transform: rotate(14deg); }
+    20% { transform: rotate(-8deg); }
+    40% { transform: rotate(-4deg); }
+    50% { transform: rotate(10deg); }
+  }
+
+  @keyframes float-around {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(20px, -25px) rotate(8deg); }
+    50% { transform: translate(-15px, -10px) rotate(-6deg); }
+    75% { transform: translate(10px, 20px) rotate(4deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
+
+  @keyframes wiggle {
+    0%, 100% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(-4deg) scale(1.06); }
+    75% { transform: rotate(4deg) scale(1.06); }
+  }
+
   .animate-fade-in-up {
     animation: fadeInUp 0.8s ease-out;
   }
 
   .animate-pulse-glow {
     animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .animate-wave {
+    transform-origin: 70% 70%;
+    animation: wave 2.5s ease-in-out infinite;
+    display: inline-block;
+  }
+
+  .animate-float-around {
+    animation: float-around 12s ease-in-out infinite;
+  }
+
+  /* Make any element do a little dance on hover */
+  .hover-wiggle {
+    transition: var(--transition-bounce);
+  }
+  .hover-wiggle:hover {
+    animation: wiggle 0.4s ease-in-out;
   }
 }
