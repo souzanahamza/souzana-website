@@ -38,7 +38,8 @@ const ProjectsSection = () => {
       technologies: ["Python", "ML", "Finance", "NLP"],
       icon: TrendingUp,
       category: "AI/Finance",
-      githubLink: "https://github.com/souzana-hamza/Comprehensive-Financial-Analysis-and-Bankruptcy-Risk-Prediction"
+      githubLink: "https://github.com/souzana-hamza/Comprehensive-Financial-Analysis-and-Bankruptcy-Risk-Prediction",
+      caseStudySlug: "financial-analysis-bankruptcy-prediction"
     },
     {
       title: "Washington DC Bike Share Analysis 2024",
@@ -54,7 +55,8 @@ const ProjectsSection = () => {
       technologies: ["Python", "NLP", "Arabic", "Deep Learning"],
       icon: Type,
       category: "NLP",
-      githubLink: "https://github.com/souzana-hamza/Arabic-Spelling-Correction"
+      githubLink: "https://github.com/souzana-hamza/Arabic-Spelling-Correction",
+      caseStudySlug: "arabic-spelling-correction"
     },
     {
       title: "NYC 311 Service Requests Analysis & Modeling",
@@ -62,7 +64,8 @@ const ProjectsSection = () => {
       technologies: ["Python", "ML", "Ensemble", "Public Service"],
       icon: Database,
       category: "AI/Public",
-      githubLink: "https://github.com/souzana-hamza/NYC-311-Service-Requests"
+      githubLink: "https://github.com/souzana-hamza/NYC-311-Service-Requests",
+      caseStudySlug: "nyc-311-service-requests"
     }
   ];
 

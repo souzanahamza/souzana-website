@@ -378,6 +378,395 @@ Data Aggregation & Export`,
       ],
     },
   },
+  {
+    slug: 'arabic-spelling-correction',
+    title: 'Arabic Spelling Correction',
+    category: 'NLP',
+    tagline:
+      'A hybrid Arabic text-correction system that fixes both spelling and grammatical errors by pairing fine-tuned deep-learning models with a classic edit-distance algorithm.',
+    icon: Type,
+    technologies: [
+      'Python',
+      'AraBART',
+      'Seq2Seq',
+      'LSTM',
+      'Levenshtein Distance',
+      'Hugging Face',
+      'PyTorch',
+      'Arabic NLP',
+    ],
+    codeLink: 'https://github.com/souzana-hamza/Arabic-Spelling-Correction',
+    overview: {
+      problem:
+        'Arabic is morphologically rich and syntactically complex, which makes automatic spelling and grammar correction genuinely hard. A single word can take many valid forms, and uncorrected errors quietly degrade everything downstream — search, readability, and any NLP pipeline that consumes the text. No single technique handles spelling, grammar, and fluency well at once.',
+      summary:
+        'This project improves Arabic text quality by combining three complementary approaches, each targeting a different class of error: a fine-tuned AraBART Seq2Seq model for grammatical correction, an LSTM next-word predictor for coherence and flow, and the Levenshtein distance algorithm for word-level spelling fixes. Together they cover errors that any one method alone would miss.',
+      highlights: [
+        'Three complementary models, each specialized for a different error type',
+        'Fine-tuned AraBART for complex grammatical correction',
+        'LSTM next-word prediction for smoother, more coherent text',
+        'Levenshtein distance for precise word-level spelling fixes',
+        'Trained and evaluated on three purpose-built Arabic datasets',
+      ],
+    },
+    architecture: {
+      description:
+        'Rather than forcing one model to do everything, the system splits correction into specialized stages. Word-level spelling errors are resolved with the Levenshtein distance algorithm over the morphological forms in the Jamid dataset; grammatical errors are corrected by an AraBART Seq2Seq model fine-tuned on the Copy-GEC Arabic dataset (tokenized via Hugging Face); and overall fluency is improved by an LSTM trained on cleaned Arabic newspaper text to predict the next word. AraBART was evaluated with ROUGE and proved the strongest at complex sentence-level grammar.',
+      diagram: `Arabic Input Text
+        ↓
+┌──────────────────┬──────────────────┬──────────────────┐
+│ Spelling Errors  │ Grammatical Err. │ Flow / Coherence │
+│        ↓         │        ↓         │        ↓         │
+│   Levenshtein    │  AraBART (S2S)   │  LSTM Next-Word  │
+│  (Jamid forms)   │  (Copy-GEC FT)   │ (Newspaper data) │
+└──────────────────┴──────────────────┴──────────────────┘
+        ↓
+ Corrected, Higher-Quality Arabic Text`,
+      components: [
+        {
+          name: 'AraBART (Fine-Tuned Seq2Seq)',
+          detail:
+            'A pre-trained Arabic sequence-to-sequence model fine-tuned on the Copy-GEC dataset for grammatical error correction, evaluated with the ROUGE metric and strongest on complex sentence structures.',
+        },
+        {
+          name: 'LSTM Next-Word Predictor',
+          detail:
+            'A recurrent network trained on cleaned Arabic newspaper text (Al-Sabah, Hespress, Akhbaruna) that predicts the next word to improve coherence and flow.',
+        },
+        {
+          name: 'Levenshtein Distance',
+          detail:
+            'A classic edit-distance algorithm that corrects word-level spelling by finding the minimum insertions, deletions, and substitutions against valid morphological forms.',
+        },
+        {
+          name: 'Copy-GEC Arabic Dataset',
+          detail:
+            'Paired uncorrected/corrected Arabic sentences for grammatical error correction, preprocessed and tokenized with the Hugging Face library to fine-tune AraBART.',
+        },
+        {
+          name: 'Arabic Newspaper Corpus',
+          detail:
+            'Real-world Arabic text cleaned and formatted to train the LSTM language model for next-word prediction.',
+        },
+        {
+          name: 'Jamid Morphological Dataset',
+          detail:
+            'A collection of different morphological forms of Arabic words used as the reference vocabulary for Levenshtein-based spelling correction.',
+        },
+      ],
+    },
+    challenges: [
+      {
+        challenge:
+          'Arabic\'s rich morphology means a single word has many valid forms, so naive spell-checkers flag correct words or miss real errors.',
+        solution:
+          'Levenshtein distance is computed against the Jamid dataset of morphological forms, correcting spelling at the word level even for complex variations.',
+      },
+      {
+        challenge:
+          'Grammatical errors span whole sentences and depend on context that word-level methods cannot capture.',
+        solution:
+          'AraBART, a pre-trained Arabic Seq2Seq model, is fine-tuned on the Copy-GEC dataset to rewrite sentences correctly — and proved most effective on complex structures.',
+      },
+      {
+        challenge:
+          'Even spelling- and grammar-correct text can read awkwardly, hurting overall quality and coherence.',
+        solution:
+          'An LSTM trained on Arabic newspaper text predicts likely next words, helping smooth the flow and coherence of the corrected output.',
+      },
+      {
+        challenge:
+          'Raw training data (especially scraped newspaper text) is noisy and inconsistently formatted.',
+        solution:
+          'A preprocessing stage cleans and normalizes the corpora, and Hugging Face tokenization converts Copy-GEC text into model-ready numerical representations.',
+      },
+      {
+        challenge:
+          'No single technique handles spelling, grammar, and fluency equally well.',
+        solution:
+          'The project deliberately combines modern deep learning (AraBART, LSTM) with a traditional algorithm (Levenshtein), letting each handle the error type it is best suited for.',
+      },
+      {
+        challenge:
+          'Model quality has to be measured objectively to justify the chosen approach.',
+        solution:
+          'AraBART was evaluated with ROUGE and the models compared on F1, precision, and recall, confirming AraBART as the top performer for grammatical correction.',
+      },
+    ],
+    impact: {
+      summary:
+        'By correcting spelling, grammar, and fluency in one hybrid system, the project meaningfully raises the quality of Arabic text — enabling cleaner downstream NLP pipelines, automated proofreading, and a better reading experience. The combination of fine-tuned models and a classic algorithm shows a pragmatic path to handling a language whose morphological complexity defeats single-method solutions.',
+      metrics: [
+        { value: '3', label: 'Complementary correction models' },
+        { value: '3', label: 'Purpose-built Arabic datasets' },
+        { value: 'Word + Sentence', label: 'Correction at every level' },
+        { value: 'ROUGE / F1', label: 'Objectively evaluated quality' },
+      ],
+    },
+  },
+  {
+    slug: 'financial-analysis-bankruptcy-prediction',
+    title: 'Comprehensive Financial Analysis & Bankruptcy Risk Prediction',
+    category: 'AI/Finance',
+    tagline:
+      'A unified decision-support tool that reads a company\'s 10-Q filing and predicts bankruptcy risk by blending expert financial scoring, machine learning, and sentiment analysis.',
+    icon: TrendingUp,
+    technologies: [
+      'Python',
+      'Machine Learning',
+      'Knowledge-Based System',
+      'FinBERT',
+      'NLP',
+      'scikit-learn',
+      'experta',
+      'Gradio',
+      'ReportLab',
+    ],
+    codeLink:
+      'https://github.com/souzana-hamza/Comprehensive-Financial-Analysis-and-Bankruptcy-Risk-Prediction',
+    overview: {
+      problem:
+        'Assessing a company\'s financial health and bankruptcy risk is slow, manual, and inconsistent. Analysts must wade through dense 10-Q filings, extract the right figures, compute ratios by hand, apply competing scoring models, and form a judgment about the tone of the disclosures — and different analysts often reach different conclusions.',
+      summary:
+        'This project unifies Knowledge-Based Systems, Machine Learning, and NLP into a single decision-support tool. It extracts financial data straight from 10-Q PDF filings, computes profitability, solvency, and liquidity ratios, applies established bankruptcy-scoring models, predicts risk with a trained ML model, and analyzes the sentiment of the report text — then presents everything in an interactive dashboard and an exportable PDF report.',
+      highlights: [
+        'Reads financial figures directly from 10-Q PDF filings',
+        'Expert scoring: Beneish M-Score, Piotroski F-Score, Springate model',
+        'ML bankruptcy prediction benchmarked across multiple models',
+        'Financial-domain sentiment via Loughran-McDonald & FinBERT',
+        'Interactive Gradio dashboard plus a full exported PDF report',
+      ],
+    },
+    architecture: {
+      description:
+        'A 10-Q PDF is parsed with PyPDF2 and regex-based text cleaning to capture key metrics (net income, assets, equity, debt, and more). Those figures feed three parallel analysis tracks: a rule-based Knowledge-Based System (built with experta) that encodes financial theory into scores, a scikit-learn ML model that predicts bankruptcy status, and an NLP track that scores the tone of the disclosures. Results converge in a Gradio dashboard and a ReportLab-generated PDF report with charts and interpretations.',
+      diagram: `10-Q PDF Filing
+        ↓
+PDF Extraction (PyPDF2 + regex)
+        ↓
+┌─────────────────┬─────────────────┬─────────────────┐
+│  Ratios + KBS   │  Bankruptcy ML  │  Sentiment NLP  │
+│ (M / F /        │  Prediction     │ (Loughran-      │
+│  Springate)     │ (scikit-learn)  │  McDonald +     │
+│                 │                 │  FinBERT)       │
+└─────────────────┴─────────────────┴─────────────────┘
+        ↓
+ Gradio Dashboard  +  Exported PDF Report`,
+      components: [
+        {
+          name: 'PDF Data Extraction',
+          detail:
+            'PyPDF2 with text cleaning and regex matching pulls structured financial figures (net income, assets, equity, debt) out of unstructured 10-Q filings.',
+        },
+        {
+          name: 'Knowledge-Based System (experta)',
+          detail:
+            'Encodes financial theory into rule-based scores: Beneish M-Score for earnings manipulation, Piotroski F-Score for financial health, and the Springate model for bankruptcy prediction.',
+        },
+        {
+          name: 'Financial Ratio Engine',
+          detail:
+            'Computes profitability (ROA, ROE, margins), solvency (debt-to-equity, equity ratio), and liquidity (current, quick, cash ratios) with charts and explanations.',
+        },
+        {
+          name: 'Machine Learning Predictor',
+          detail:
+            'A scikit-learn model — selected via benchmarking and saved as best_model.pkl — predicts whether a company is "Good" or "Bankrupt".',
+        },
+        {
+          name: 'Sentiment Analysis (NLP)',
+          detail:
+            'Scores the tone of report text using the finance-specific Loughran-McDonald dictionary and the FinBERT transformer for domain-aware sentiment.',
+        },
+        {
+          name: 'Gradio UI & PDF Reports',
+          detail:
+            'An interactive dashboard visualizes every result, and ReportLab exports a comprehensive PDF report with charts, tables, and interpretations.',
+        },
+      ],
+    },
+    challenges: [
+      {
+        challenge:
+          '10-Q filings are long, unstructured PDFs where the same figure can appear in many formats and locations.',
+        solution:
+          'A PyPDF2 extraction stage with text cleaning and regex matching reliably captures the key financial metrics needed for downstream analysis.',
+      },
+      {
+        challenge:
+          'Established financial theory (manipulation, health, bankruptcy) lives in formulas and expert heuristics, not in code.',
+        solution:
+          'A Knowledge-Based System built with experta encodes the Beneish M-Score, Piotroski F-Score, and Springate model into transparent, rule-based scoring.',
+      },
+      {
+        challenge:
+          'Rule-based scores alone can miss patterns that emerge from historical data across many companies.',
+        solution:
+          'Multiple ML models are trained and benchmarked (model_comparison_results.csv), and the best performer is saved and used to predict bankruptcy status.',
+      },
+      {
+        challenge:
+          'Numbers don\'t tell the whole story — the tone of management\'s disclosures carries real signal.',
+        solution:
+          'An NLP track combines the finance-tuned Loughran-McDonald dictionary with FinBERT to score sentiment in a domain-aware way.',
+      },
+      {
+        challenge:
+          'A black-box risk verdict is hard for analysts to trust or act on.',
+        solution:
+          'Interactive Gradio dashboards pair every result with charts and plain-language explanations, and a ReportLab PDF report documents the full analysis.',
+      },
+      {
+        challenge:
+          'Three very different techniques (rules, ML, NLP) have to work together coherently.',
+        solution:
+          'A unified workflow chains PDF extraction → ratios & KBS → ML prediction → sentiment → visualization & export, so the signals reinforce one decision.',
+      },
+    ],
+    impact: {
+      summary:
+        'The tool turns hours of manual financial review into a fast, repeatable analysis that standardizes how bankruptcy risk is assessed. By combining transparent expert scores, data-driven ML prediction, and domain-aware sentiment — all explained in dashboards and a polished PDF report — it helps analysts prioritize reviews, justify conclusions, and improve transparency in credit and investment decisions.',
+      metrics: [
+        { value: '3', label: 'Expert scoring models (M / F / Springate)' },
+        { value: '3', label: 'Analysis lenses: KBS, ML & NLP' },
+        { value: '10-Q', label: 'Filings parsed end-to-end' },
+        { value: 'PDF', label: 'Auto-generated analysis reports' },
+      ],
+    },
+  },
+  {
+    slug: 'nyc-311-service-requests',
+    title: 'NYC 311 Service Requests Analysis & Modeling',
+    category: 'AI/Public',
+    tagline:
+      'An end-to-end data science project that cleans, explores, and models millions of NYC 311 service requests to predict how long each one will take to resolve.',
+    icon: Database,
+    technologies: [
+      'Python',
+      'pandas',
+      'scikit-learn',
+      'XGBoost',
+      'LightGBM',
+      'CatBoost',
+      'Prophet',
+      'statsmodels',
+      'Seaborn',
+    ],
+    codeLink: 'https://github.com/souzana-hamza/NYC-311-Service-Requests',
+    overview: {
+      problem:
+        'New York City\'s 311 system handles a massive volume of service requests, but residents and agencies have little visibility into how long a given request will take to resolve. Without reliable wait-time estimates, it is hard to set expectations, allocate resources, or spot the boroughs, complaint types, and times of day that drive delays.',
+      summary:
+        'This project builds an end-to-end pipeline over the NYC 311 dataset to predict resolution wait time (in days). It cleans and filters the raw records, engineers rich temporal, spatial, and interaction features, explores the data visually, and benchmarks a full ladder of models — from a dummy baseline up to tuned gradient boosting and a stacking ensemble — alongside time-series forecasting of daily complaint volume.',
+      highlights: [
+        'Predicts request resolution wait time in days',
+        'Rich feature engineering: temporal, spatial (geo-clusters), and interaction features',
+        'Model ladder from baselines to tuned XGBoost, LightGBM & stacking',
+        'Best test RMSE ≈ 0.1466 with a stacking regressor',
+        'Time-series forecasting of complaint volume with Prophet & ETS',
+      ],
+    },
+    architecture: {
+      description:
+        'The workflow moves from raw data to predictions in clear stages. Records are loaded and cleaned, then the target (days between created and closed dates) is derived. A feature-engineering stage adds temporal, spatial, and interaction signals, EDA surfaces patterns by borough/type/time, and a benchmarking stage trains progressively stronger regressors. Tuned XGBoost and LightGBM are combined in a stacking ensemble, while Prophet and ETS forecast daily complaint volume.',
+      diagram: `Raw NYC 311 Data
+        ↓
+Cleaning & Target (waittime = closed - created)
+        ↓
+Feature Engineering (temporal · spatial · interaction)
+        ↓
+Exploratory Data Analysis
+        ↓
+┌─────────────────────────┬─────────────────────────┐
+│   Wait-Time Regression  │   Volume Forecasting    │
+│  Baseline → Trees →     │   Prophet · ETS         │
+│  XGBoost / LightGBM →   │                         │
+│  Stacking (RidgeCV)     │                         │
+└─────────────────────────┴─────────────────────────┘
+        ↓
+ RMSE Evaluation & Insights`,
+      components: [
+        {
+          name: 'Data Cleaning & Targeting',
+          detail:
+            'Loads the raw dataset, handles missing values, renames columns, filters invalid records, and derives the target waittime as the days between created_date and closed_date.',
+        },
+        {
+          name: 'Feature Engineering',
+          detail:
+            'Temporal features (hour, day, month, quarter, rush-hour, weekend, night), spatial features (lat/long binning + KMeans geo-clusters), interaction features (borough × complaint type), and cyclical sin/cos encodings.',
+        },
+        {
+          name: 'Exploratory Data Analysis',
+          detail:
+            'Complaint distributions by borough, type, and location; wait-time trends over time; correlation heatmaps, boxplots, geographic density plots, and borough-level clustering.',
+        },
+        {
+          name: 'Model Ladder',
+          detail:
+            'Benchmarks a Dummy baseline, Linear Regression (log target), Decision Tree, and Random Forest against boosting models XGBoost, LightGBM, and CatBoost.',
+        },
+        {
+          name: 'Tuning & Stacking',
+          detail:
+            'Hyperparameter tuning for XGBoost and LightGBM, then a stacking regressor that combines them with a RidgeCV meta-learner for the lowest RMSE.',
+        },
+        {
+          name: 'Time-Series Forecasting',
+          detail:
+            'Daily complaint aggregation and smoothing forecast future volume using Prophet and Exponential Smoothing (ETS), evaluated with RMSE.',
+        },
+      ],
+    },
+    challenges: [
+      {
+        challenge:
+          'The raw 311 dataset is large and messy, with missing values, inconsistent columns, and invalid records.',
+        solution:
+          'A dedicated cleaning stage handles missing data, renames and filters fields, and derives a reliable waittime target from the created and closed timestamps.',
+      },
+      {
+        challenge:
+          'Raw request fields carry little predictive signal about how long resolution will take.',
+        solution:
+          'Extensive feature engineering adds temporal, spatial (KMeans geo-clusters), and interaction features, plus cyclical encodings so the models can learn time-of-day and seasonal patterns.',
+      },
+      {
+        challenge:
+          'Wait times are highly skewed, so naive regression is dominated by long-tail outliers.',
+        solution:
+          'A log transform on the target and a progression from simple baselines to robust gradient-boosting models keep error low and comparable across approaches.',
+      },
+      {
+        challenge:
+          'It is unclear up front which model family best fits this noisy, high-volume tabular data.',
+        solution:
+          'A full model ladder is benchmarked on RMSE; tuned XGBoost (≈0.1467) and LightGBM (≈0.1468) lead, and a RidgeCV stacking ensemble edges ahead at ≈0.1466.',
+      },
+      {
+        challenge:
+          'Predicting per-request time doesn\'t tell agencies how overall demand will evolve.',
+        solution:
+          'A separate time-series track aggregates daily complaints and forecasts future volume with Prophet and ETS, capturing seasonality and trend.',
+      },
+      {
+        challenge:
+          'Insights need to be interpretable for non-technical city stakeholders.',
+        solution:
+          'Rich EDA — distributions, heatmaps, time-series, and geographic density plots — turns the modeling into clear, borough- and time-level operational insights.',
+      },
+    ],
+    impact: {
+      summary:
+        'By accurately estimating how long service requests take to resolve and forecasting future demand, the project gives city agencies a data-driven basis to set resident expectations, allocate resources, and target the boroughs, complaint types, and times of day that drive delays — improving both transparency and the efficiency of public services.',
+      metrics: [
+        { value: '≈0.1466', label: 'Best test RMSE (stacking ensemble)' },
+        { value: '8+', label: 'Models benchmarked end-to-end' },
+        { value: '3', label: 'Feature families: temporal, spatial, interaction' },
+        { value: 'Prophet + ETS', label: 'Demand forecasting models' },
+      ],
+    },
+  },
 ];
 
 export const getProjectBySlug = (slug?: string): ProjectCaseStudy | undefined =>
