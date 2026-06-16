@@ -1,4 +1,7 @@
 import { Card } from '@/components/ui/card';
+import { CardAccentBar, CardIcon } from '@/components/ui/card-icon';
+import { sectionCardClass } from '@/lib/card-styles';
+import { cn } from '@/lib/utils';
 import { Mail, Linkedin, Github, Phone } from 'lucide-react';
 
 const ContactSection = () => {
@@ -7,29 +10,25 @@ const ContactSection = () => {
       icon: Mail,
       label: 'Email Me',
       value: 'souzana.hamze@email.com',
-      href: 'mailto:souzana.hamze@email.com',
-      color: 'text-primary'
+      href: 'mailto:souzana.hamze@email.com'
     },
     {
       icon: Linkedin,
       label: 'Connect on LinkedIn',
       value: 'linkedin.com/in/souzana-hamza',
-      href: 'https://www.linkedin.com/in/souzana-hamza-508a30225/',
-      color: 'text-blue-500'
+      href: 'https://www.linkedin.com/in/souzana-hamza-508a30225/'
     },
     {
       icon: Github,
       label: 'GitHub Profile',
       value: 'github.com/souzana-hamza',
-      href: 'https://github.com/souzana-hamza',
-      color: 'text-foreground'
+      href: 'https://github.com/souzana-hamza'
     },
     {
       icon: Phone,
       label: 'Call Me',
       value: '+963932852762',
-      href: 'tel:+963932852762',
-      color: 'text-green-500'
+      href: 'tel:+963932852762'
     }
   ];
 
@@ -55,14 +54,13 @@ const ContactSection = () => {
                   return (
                     <Card 
                       key={index}
-                      className="p-6 shadow-card gradient-card border-border/50 hover:shadow-glow transition-smooth animate-fade-in-up group cursor-pointer"
+                      className={cn(sectionCardClass, "animate-fade-in-up cursor-pointer")}
                       style={{ animationDelay: `${index * 150}ms` }}
                       onClick={() => window.open(method.href, '_blank')}
                     >
-                      <div className="text-center space-y-4">
-                        <div className={`p-4 bg-background/10 rounded-xl mx-auto w-fit ${method.color}`}>
-                          <IconComponent className="w-8 h-8" />
-                        </div>
+                      <CardAccentBar />
+                      <div className="relative text-center space-y-4">
+                        <CardIcon icon={IconComponent} className="mx-auto w-fit" />
                         <div>
                           <h4 className="font-semibold text-foreground group-hover:text-primary transition-smooth mb-2">
                             {method.label}
@@ -79,8 +77,9 @@ const ContactSection = () => {
             </div>
 
             {/* Availability Status */}
-            <Card className="hover-wiggle p-6 shadow-card gradient-card border-border/50 max-w-md mx-auto">
-              <div className="flex items-center gap-4 justify-center">
+            <Card className={cn(sectionCardClass, "hover-wiggle max-w-md mx-auto")}>
+              <CardAccentBar />
+              <div className="relative flex items-center gap-4 justify-center">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                 <div className="text-center">
                   <h4 className="font-semibold text-foreground">Currently accepting job offers 🚀</h4>

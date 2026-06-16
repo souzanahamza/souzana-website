@@ -1,5 +1,8 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { CardAccentBar } from '@/components/ui/card-icon';
+import { sectionCardClass } from '@/lib/card-styles';
+import { cn } from '@/lib/utils';
 import { MapPin, Calendar, Building } from 'lucide-react';
 
 const ExperienceSection = () => {
@@ -80,8 +83,9 @@ const ExperienceSection = () => {
                   {/* Timeline dot */}
                   <div className="absolute left-6 w-4 h-4 bg-primary rounded-full border-4 border-background hidden md:block"></div>
 
-                  <Card className="ml-0 md:ml-16 p-8 shadow-card gradient-card border-border/50 hover:shadow-glow transition-smooth">
-                    <div className="space-y-6">
+                  <Card className={cn(sectionCardClass, "ml-0 md:ml-16")}>
+                    <CardAccentBar />
+                    <div className="relative space-y-6">
                       {/* Header */}
                       <div className="space-y-3">
                         <h3 className="text-2xl font-bold text-foreground">{exp.title}</h3>

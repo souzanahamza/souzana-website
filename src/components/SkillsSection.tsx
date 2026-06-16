@@ -1,6 +1,9 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Brain, Database, Code, BarChart3, Cog, Eye, Settings, Smartphone } from 'lucide-react';
+import { CardAccentBar, CardIcon } from '@/components/ui/card-icon';
+import { sectionCardClass } from '@/lib/card-styles';
+import { cn } from '@/lib/utils';
+import { Brain, Database, Code, BarChart3, Cog, Eye, Settings, Smartphone, Handshake } from 'lucide-react';
 
 const SkillsSection = () => {
   const skillCategories = [
@@ -109,14 +112,13 @@ const SkillsSection = () => {
               return (
                 <Card 
                   key={index} 
-                  className="shadow-card hover:shadow-glow transition-smooth sticky"
+                  className={cn(sectionCardClass, "sticky")}
                   style={{ top: `${80 + index * 20}px` }}
                 >
-                  <div className="p-6">
+                  <CardAccentBar />
+                  <div className="relative">
                     <div className="flex items-center space-x-3 mb-6">
-                      <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                        <IconComponent className="w-5 h-5 text-primary" />
-                      </div>
+                      <CardIcon icon={IconComponent} />
                       <h3 className="text-xl font-semibold">{category.title}</h3>
                       <div className="flex-1 h-px bg-border"></div>
                     </div>
@@ -139,14 +141,13 @@ const SkillsSection = () => {
 
             {/* Soft Skills */}
             <Card 
-              className="shadow-card hover:shadow-glow transition-smooth sticky"
+              className={cn(sectionCardClass, "sticky")}
               style={{ top: `${80 + skillCategories.length * 20}px` }}
             >
-              <div className="p-6">
+              <CardAccentBar />
+              <div className="relative">
                 <div className="flex items-center space-x-3 mb-6">
-                  <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
-                    <span className="text-primary text-lg">🤝</span>
-                  </div>
+                  <CardIcon icon={Handshake} />
                   <h3 className="text-xl font-semibold">Soft Skills</h3>
                   <div className="flex-1 h-px bg-border"></div>
                 </div>

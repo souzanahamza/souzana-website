@@ -1,6 +1,9 @@
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { CardAccentBar, CardIcon } from '@/components/ui/card-icon';
+import { sectionCardClass } from '@/lib/card-styles';
+import { cn } from '@/lib/utils';
 import { Award, ExternalLink, Calendar, CheckCircle } from 'lucide-react';
 
 const CertificationsSection = () => {
@@ -86,16 +89,15 @@ const CertificationsSection = () => {
           {certifications.map((cert, index) => (
             <Card 
               key={index}
-              className="p-8 shadow-card gradient-card border-border/50 hover:shadow-glow transition-smooth group animate-fade-in-up"
+              className={cn(sectionCardClass, "animate-fade-in-up")}
               style={{ animationDelay: `${index * 150}ms` }}
             >
-              <div className="space-y-6">
+              <CardAccentBar />
+              <div className="relative space-y-6">
                 {/* Header */}
                 <div className="space-y-4">
                   <div className="flex items-start justify-between">
-                    <div className="p-3 bg-accent/10 rounded-xl">
-                      <Award className="w-6 h-6 text-accent" />
-                    </div>
+                    <CardIcon icon={Award} variant="accent" />
                     <Badge variant="secondary" className="text-xs">
                       {cert.category}
                     </Badge>

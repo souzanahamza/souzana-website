@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { CardAccentBar } from '@/components/ui/card-icon';
 import { University, Calendar, Award } from 'lucide-react';
 import damascusLogo from '@/assets/damascus-university.png';
 import svuLogo from '@/assets/syrian-virtual-university.png';
@@ -59,7 +60,8 @@ const EducationSection = () => {
                       </div>
                     </div>
 
-                    <Card className="group shadow-card gradient-card border border-border/60 rounded-2xl overflow-hidden transition-smooth hover:shadow-glow hover:-translate-y-1">
+                    <Card className="group relative shadow-card gradient-card border-border/50 rounded-2xl overflow-hidden transition-smooth hover:shadow-glow hover:-translate-y-2 hover:border-primary/40">
+                      <CardAccentBar />
                       <CardHeader className="pb-3">
                         <div className="flex flex-wrap items-start justify-between gap-3">
                           <h3 className="text-lg sm:text-xl font-semibold text-foreground leading-snug max-w-md group-hover:text-primary transition-smooth">

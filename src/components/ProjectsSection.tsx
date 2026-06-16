@@ -2,6 +2,9 @@ import { Link } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
+import { CardAccentBar, CardIcon } from '@/components/ui/card-icon';
+import { sectionCardClass } from '@/lib/card-styles';
+import { cn } from '@/lib/utils';
 import { ExternalLink, Github, TrendingUp, BarChart3, Database, FileText, Type, ShoppingBag, Globe, Printer, ArrowRight } from 'lucide-react';
 
 const ProjectsSection = () => {
@@ -92,11 +95,10 @@ const ProjectsSection = () => {
             return (
               <Card
                 key={index}
-                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border-border/50 gradient-card p-8 shadow-card transition-smooth animate-fade-in-up hover:-translate-y-2 hover:border-primary/40 hover:shadow-glow"
+                className={cn(sectionCardClass, "flex h-full flex-col animate-fade-in-up")}
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                {/* Accent top bar */}
-                <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 gradient-accent transition-smooth group-hover:scale-x-100" />
+                <CardAccentBar />
 
                 {/* Ambient glow on hover */}
                 <span className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-primary/10 opacity-0 blur-2xl transition-smooth group-hover:opacity-100" />
@@ -105,9 +107,7 @@ const ProjectsSection = () => {
                   {/* Header */}
                   <div className="space-y-4">
                     <div className="flex items-start justify-between gap-3">
-                      <div className="rounded-xl bg-primary/10 p-3 ring-1 ring-inset ring-primary/10 transition-smooth group-hover:bg-primary/15 group-hover:ring-primary/30 group-hover:scale-110">
-                        <IconComponent className="h-6 w-6 text-primary" />
-                      </div>
+                      <CardIcon icon={IconComponent} />
                       <Badge variant="secondary" className="text-xs font-medium">
                         {project.category}
                       </Badge>
