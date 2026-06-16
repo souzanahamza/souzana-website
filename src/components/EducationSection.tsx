@@ -28,14 +28,13 @@ const EducationSection = () => {
         <div className="max-w-3xl mx-auto">
           {/* Section Header */}
           <div className="text-center mb-16">
-            <span className="inline-block text-sm font-semibold tracking-widest uppercase text-primary/80 mb-3">
-              Academic Background
-            </span>
             <h2 className="text-4xl font-bold mb-4">
               <span className="gradient-hero bg-clip-text text-transparent">Education</span>
             </h2>
             <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              A double major combining artificial intelligence with finance and business management.
+              A <span className="font-semibold text-foreground">double major</span> bridging{" "}
+              <span className="font-semibold text-foreground">artificial intelligence</span> with{" "}
+              <span className="font-semibold text-foreground">finance and business management</span> — blending technical depth with strategic, real-world thinking.
             </p>
           </div>
 

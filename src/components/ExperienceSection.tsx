@@ -67,9 +67,6 @@ const ExperienceSection = () => {
           <h2 className="text-4xl font-bold mb-4">
             <span className="gradient-hero bg-clip-text text-transparent">Experience</span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Building AI solutions across finance, automation, and mobile development
-          </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
