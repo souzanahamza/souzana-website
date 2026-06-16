@@ -1,17 +1,19 @@
+import { Link } from 'react-router-dom';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { ExternalLink, Github, TrendingUp, BarChart3, Database, FileText, Type, ShoppingBag, Globe, Printer } from 'lucide-react';
+import { ExternalLink, Github, TrendingUp, BarChart3, Database, FileText, Type, ShoppingBag, Globe, Printer, ArrowRight } from 'lucide-react';
 
 const ProjectsSection = () => {
   const projects = [
     {
-      title: "SmartShop Multimodal RAG Assistant",
-      description: "Engineered a high-performance Multimodal RAG pipeline. Utilized 'intfloat/e5' for dense text retrieval and 'CLIP ViT' for visual semantic search. Integrated 'Gemini Flash' for real-time, context-aware reasoning within a Supabase-backed architecture. Delivers instant recommendations via a seamless React interface.",
-      technologies: ["Multimodal RAG", "Gemini Flash", "CLIP ViT", "Qdrant", "Supabase", "React"],
+      title: "Seluze AI Agent",
+      description: "Your personal AI shopping assistant. Just describe what you're looking for — or snap a photo — and Seluze finds the perfect products and chats with you like a real sales expert. It understands intent, answers follow-up questions, and even speaks your language, turning browsing into a fast, friendly conversation.",
+      technologies: ["Agentic RAG", "FastAPI", "Qdrant", "CLIP ViT", "Gemini", "Supabase"],
       icon: ShoppingBag,
       category: "AI/GenAI & E-commerce",
-      demoLink: "https://smart-shop-website.vercel.app/"
+      demoLink: "https://seluze.vercel.app/",
+      caseStudySlug: "seluze-ai-agent"
     },
     {
       title: "Printava | Print Shop SaaS ERP (Beta)",
@@ -27,7 +29,8 @@ const ProjectsSection = () => {
       technologies: ["Python", "AI", "OCR", "Arabic NLP"],
       icon: FileText,
       category: "AI/Business",
-      githubLink: "https://github.com/khaled-rashwani/infromation-extraction-from-arabic-invoice"
+      githubLink: "https://github.com/souzanahamza/information-extraction-from-arabic-invoice",
+      caseStudySlug: "invoice-processing-pipeline"
     },
     {
       title: "Comprehensive Financial Analysis & Bankruptcy Risk Prediction",
@@ -120,7 +123,20 @@ const ProjectsSection = () => {
                   </div>
 
                   {/* Actions */}
-                  <div className="flex pt-4 border-t border-border/50">
+                  <div className="flex flex-col gap-2 pt-4 border-t border-border/50">
+                    {project.caseStudySlug && (
+                      <Button
+                        variant="default"
+                        size="sm"
+                        className="w-full group/btn"
+                        asChild
+                      >
+                        <Link to={`/projects/${project.caseStudySlug}`}>
+                          View Case Study
+                          <ArrowRight className="w-4 h-4 ml-2 transition-smooth group-hover/btn:translate-x-1" />
+                        </Link>
+                      </Button>
+                    )}
                     <Button 
                       variant="ghost" 
                       size="sm" 
