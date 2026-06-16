@@ -90,71 +90,81 @@ const ProjectsSection = () => {
             const linkUrl = project.demoLink || project.githubLink;
 
             return (
-              <Card 
-                key={index} 
-                className="p-8 shadow-card gradient-card border-border/50 hover:shadow-glow transition-smooth group animate-fade-in-up hover:scale-105"
+              <Card
+                key={index}
+                className="group relative flex h-full flex-col overflow-hidden rounded-2xl border-border/50 gradient-card p-8 shadow-card transition-smooth animate-fade-in-up hover:-translate-y-2 hover:border-primary/40 hover:shadow-glow"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <div className="space-y-6">
+                {/* Accent top bar */}
+                <span className="absolute inset-x-0 top-0 h-1 origin-left scale-x-0 gradient-accent transition-smooth group-hover:scale-x-100" />
+
+                {/* Ambient glow on hover */}
+                <span className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-primary/10 opacity-0 blur-2xl transition-smooth group-hover:opacity-100" />
+
+                <div className="relative flex h-full flex-col space-y-6">
                   {/* Header */}
                   <div className="space-y-4">
-                    <div className="flex items-start justify-between">
-                      <div className="p-3 bg-primary/10 rounded-xl">
-                        <IconComponent className="w-6 h-6 text-primary" />
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="rounded-xl bg-primary/10 p-3 ring-1 ring-inset ring-primary/10 transition-smooth group-hover:bg-primary/15 group-hover:ring-primary/30 group-hover:scale-110">
+                        <IconComponent className="h-6 w-6 text-primary" />
                       </div>
-                      <Badge variant="secondary" className="text-xs">
+                      <Badge variant="secondary" className="text-xs font-medium">
                         {project.category}
                       </Badge>
                     </div>
-                    
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-smooth">
+
+                    <h3 className="text-xl font-bold leading-snug text-foreground transition-smooth group-hover:text-primary">
                       {project.title}
                     </h3>
                   </div>
 
                   {/* Description */}
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="leading-relaxed text-muted-foreground">
                     {project.description}
                   </p>
 
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
-                      <Badge key={tech} variant="outline" className="text-xs">
+                      <Badge
+                        key={tech}
+                        variant="outline"
+                        className="border-border/60 bg-background/40 text-xs transition-smooth hover:border-primary/40 hover:text-primary"
+                      >
                         {tech}
                       </Badge>
                     ))}
                   </div>
 
                   {/* Actions */}
-                  <div className="flex flex-col gap-2 pt-4 border-t border-border/50">
+                  <div className="mt-auto flex flex-col gap-2 border-t border-border/50 pt-5">
                     {project.caseStudySlug && (
                       <Button
                         variant="default"
                         size="sm"
-                        className="w-full group/btn"
+                        className="group/btn w-full"
                         asChild
                       >
                         <Link to={`/projects/${project.caseStudySlug}`}>
                           View Case Study
-                          <ArrowRight className="w-4 h-4 ml-2 transition-smooth group-hover/btn:translate-x-1" />
+                          <ArrowRight className="ml-2 h-4 w-4 transition-smooth group-hover/btn:translate-x-1" />
                         </Link>
                       </Button>
                     )}
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="w-full"
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="w-full text-muted-foreground hover:text-primary"
                       onClick={() => window.open(linkUrl, '_blank')}
                     >
                       {hasDemo ? (
                         <>
-                          <Globe className="w-4 h-4 mr-2" />
+                          <Globe className="mr-2 h-4 w-4" />
                           View Live Demo
                         </>
                       ) : (
                         <>
-                          <Github className="w-4 h-4 mr-2" />
+                          <Github className="mr-2 h-4 w-4" />
                           View Code
                         </>
                       )}

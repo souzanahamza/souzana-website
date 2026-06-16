@@ -90,6 +90,13 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         tall: true,
       },
       {
+        src: '/projects/seluze/product-detail.png',
+        alt: 'Seluze product detail card showing an 84% match score, price, expandable description and Ask, Find similar and View in store actions',
+        caption:
+          'Product detail card — each recommendation opens into a rich card with a relevance match score (here 84%), price, and an expandable description. From one place the shopper can ask about that exact product, find visually similar lookalikes, or jump straight to the product page in the store.',
+        tall: true,
+      },
+      {
         src: '/projects/seluze/analytics.png',
         alt: 'Seluze Control Center analytics dashboard showing query metrics, latency breakdown and intent distribution',
         caption:
