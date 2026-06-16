@@ -21,7 +21,8 @@ const ProjectsSection = () => {
       technologies: ["React", "TypeScript", "Supabase", "TanStack Query", "Tailwind CSS"],
       icon: Printer,
       category: "SaaS/Full-Stack",
-      demoLink: "https://print-flow-ten.vercel.app/"
+      demoLink: "https://print-flow-ten.vercel.app/",
+      caseStudySlug: "printava-order-flow"
     },
     {
       title: "Information Extraction from Arabic Invoices",

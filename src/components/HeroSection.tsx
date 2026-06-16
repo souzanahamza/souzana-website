@@ -24,7 +24,7 @@ const HeroSection = () => {
               </h1>
               
               <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-                I turn data into decisions and AI into business value. With a Double Major in Artificial Intelligence and Finance & Banking, I build predictive models, automate workflows, and deliver scalable software.
+                I turn data into decisions and AI into business value. With a Double Major in Artificial Intelligence and Finance & Banking, I build predictive models, AI agents, automate workflows, and deliver scalable software.
               </p>
 
               {/* Quick Highlights Badges */}

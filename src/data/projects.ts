@@ -119,6 +119,12 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         caption:
           'Customer Memory — the assistant automatically builds a CRM-style profile for every shopper from past conversations, capturing preferred size, colors, style, and budget. With thousands of profiles (and a 58% returning-shopper rate here), it personalizes recommendations and recognizes customers on repeat visits.',
       },
+      {
+        src: '/projects/seluze/proactive-triggers.png',
+        alt: 'Seluze Proactive Triggers view with event-driven up-sell rules mapping shopper behaviors to AI actions and target audiences',
+        caption:
+          'Proactive Triggers — operators define event-driven up-sell rules that let the assistant reach out on its own: behaviors like "Product Page Idle > 30s", "Added Dress to Cart", or "Exit Intent (Cart > 0)" map to a tailored AI action and target audience, each toggleable on or off. Tracked alongside trigger events fired, chat engagement rate, and revenue attributed to triggers.',
+      },
     ],
     overview: {
       problem:
@@ -764,6 +770,144 @@ Exploratory Data Analysis
         { value: '8+', label: 'Models benchmarked end-to-end' },
         { value: '3', label: 'Feature families: temporal, spatial, interaction' },
         { value: 'Prophet + ETS', label: 'Demand forecasting models' },
+      ],
+    },
+  },
+  {
+    slug: 'printava-order-flow',
+    title: 'Printava | Print Shop SaaS ERP',
+    category: 'SaaS/Full-Stack',
+    tagline:
+      'A role-based management platform for print shops that runs the full journey of a job — from the first price quote, through design and production, to delivery and payment — in one collaborative workspace.',
+    icon: Printer,
+    technologies: [
+      'React 18',
+      'TypeScript',
+      'Vite',
+      'Supabase',
+      'TanStack Query',
+      'shadcn/ui',
+      'Tailwind CSS',
+      'React Hook Form',
+      'Zod',
+      'Capacitor',
+    ],
+    liveLink: 'https://print-flow-ten.vercel.app/',
+    overview: {
+      problem:
+        'Print shops juggle quoting, design, production, and billing across separate tools and spreadsheets. Jobs slip between teams, pricing is calculated by hand, and nobody has a single, trustworthy view of where an order stands — which slows delivery and creates costly mistakes.',
+      summary:
+        'Printava Order Flow brings the entire print-job lifecycle into one role-aware workspace. Sales build auto-priced quotations and convert them to orders in a click; designers manage mockups and print-ready files; the shop floor works a production queue tuned for speed; and admins control pricing, currency, statuses, and team access. Everything is backed by Supabase with a snappy, stale-while-revalidate UI.',
+      highlights: [
+        'Full lifecycle: quote → order → design → production → delivery → payment',
+        'Four tailored roles with route-level access control',
+        'Automatic pricing from configurable tiers and one-click quote-to-order',
+        'Status-driven workflow across Sales, Design, and Production',
+        'Multi-currency finance with a manageable exchange-rates system',
+        'Packaged as a native Android app via Capacitor',
+      ],
+    },
+    architecture: {
+      description:
+        'Printava is a React 18 + TypeScript SPA built with Vite, using shadcn/ui on Radix primitives and Tailwind for theming. Supabase provides auth, database, and edge functions (e.g. direct user provisioning), while TanStack Query v5 handles caching and background refresh for a real-time-ish feel. Route-level RoleBasedRoute guards adapt navigation, actions, and visible data to each signed-in user, and a status-driven workflow moves every job through the right team.',
+      diagram: `Quotation (auto-priced)
+        ↓ one-click convert
+Order Lifecycle  (status-driven workflow)
+        ↓
+┌───────────────┬───────────────┬───────────────┐
+│     Sales     │    Design     │   Production  │
+│  CRM · Quotes │  Mockups ·    │  Shop-floor   │
+│  · Orders     │  Print files  │  queue        │
+└───────────────┴───────────────┴───────────────┘
+        ↓
+ Delivery · Printable Invoice · Payment
+
+Roles: Admin · Sales · Designer · Production
+Backend: Supabase (auth · DB · edge functions)`,
+      components: [
+        {
+          name: 'Role-Based Access Control',
+          detail:
+            'Four core roles (Admin, Sales, Designer, Production) each get a tailored interface with route-level protection via RoleBasedRoute, backed by Supabase authentication.',
+        },
+        {
+          name: 'Quotations Engine',
+          detail:
+            'Create and manage estimates priced automatically from the shop\'s pricing tiers, with one-click conversion of an approved quote into a live order and printable templates via react-to-print.',
+        },
+        {
+          name: 'Order Lifecycle',
+          detail:
+            'A rich order view with timeline, client info, items table, and attachments, driven by a status workflow that hands jobs between Sales, Design, and Production, plus printable invoices.',
+        },
+        {
+          name: 'Design Workspace',
+          detail:
+            'A filtered task list for design work where designers upload mockups, pull client references, and finalize print-ready files through a dedicated approval flow.',
+        },
+        {
+          name: 'Production Queue',
+          detail:
+            'A shop-floor view with large status cards, delivery deadlines, notes, and quick "Start Job" / "Mark as Ready" actions as jobs move from Ready for Production to Delivered.',
+        },
+        {
+          name: 'Admin & Configuration',
+          detail:
+            'Admins manage team accounts (via a create-user-direct edge function), customize pipeline stages and status colors, and configure pricing tiers, margins, tax, and multi-currency exchange rates.',
+        },
+        {
+          name: 'Products & Catalog',
+          detail:
+            'Manage products, categories, and SKUs with bulk spreadsheet import/export (xlsx); specs surface to designers and pricing details to sales.',
+        },
+      ],
+    },
+    challenges: [
+      {
+        challenge:
+          'A print job touches Sales, Design, and Production — each role needs different data and actions, and shouldn\'t see the rest.',
+        solution:
+          'Four roles each get a tailored UI with route-level RoleBasedRoute guards, so navigation, actions, and visible data adapt automatically to the signed-in user.',
+      },
+      {
+        challenge:
+          'Manual quoting is slow and error-prone, and re-keying an approved quote into an order invites mistakes.',
+        solution:
+          'Quotations are priced automatically from configurable pricing tiers and convert into a live order in one click, eliminating duplicate data entry.',
+      },
+      {
+        challenge:
+          'Jobs easily get lost or stall as they move between teams with no shared source of truth.',
+        solution:
+          'A status-driven workflow with admin-customizable stages moves every job through Design and Production, with a timeline and detail view that keep status unambiguous.',
+      },
+      {
+        challenge:
+          'Print shops bill in multiple currencies with their own margins and tax rules.',
+        solution:
+          'Admin-configurable pricing tiers, margins, and tax rates plus a manageable exchange-rates system and centralized currency formatting keep finances consistent app-wide.',
+      },
+      {
+        challenge:
+          'The shop floor needs a fast, glanceable interface — not the same dense screens the office uses.',
+        solution:
+          'A dedicated production queue uses large status cards, deadlines, and one-tap "Start Job" / "Mark as Ready" actions, optimized for use on phones and tablets.',
+      },
+      {
+        challenge:
+          'Users expect instant feedback and fresh data without constantly refreshing.',
+        solution:
+          'TanStack Query v5 delivers a stale-while-revalidate experience with background refresh, complemented by skeleton loaders, empty states, and inline Zod-powered form validation.',
+      },
+    ],
+    impact: {
+      summary:
+        'Printava replaces a patchwork of spreadsheets and disconnected tools with one collaborative workspace, so quotes turn into delivered jobs faster and with fewer errors. Role-tailored views keep every team focused, automatic pricing and multi-currency finance reduce mistakes, and Capacitor packaging brings the shop floor a native mobile experience — built for collaboration and efficiency.',
+      metrics: [
+        { value: '4', label: 'Role-tailored interfaces' },
+        { value: '1', label: 'Unified quote-to-delivery workspace' },
+        { value: 'Multi-currency', label: 'Pricing, margins & exchange rates' },
+        { value: 'Web + Android', label: 'Responsive SPA & native app' },
       ],
     },
   },
