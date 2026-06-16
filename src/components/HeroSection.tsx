@@ -36,10 +36,10 @@ const HeroSection = () => {
                   Predictive & Analytics
                 </div>
                 <div className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary">
-                  Automation & Data Pipelines
+                  AI Agents
                 </div>
                 <div className="px-4 py-2 bg-primary/10 border border-primary/20 rounded-full text-sm font-medium text-primary">
-                  Flutter Apps
+                  Automation & Data Pipelines
                 </div>
               </div>
             </div>
