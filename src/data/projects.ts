@@ -242,12 +242,6 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         solution:
           'Non-English queries are translated into rich English product descriptions for retrieval, while replies are returned in the customer\'s original language.',
       },
-      {
-        challenge:
-          'A single LLM provider means rate limits, outages, and no flexibility to tune cost vs. quality per stage.',
-        solution:
-          'A multi-provider layer lets routing, synthesis, and the agent each use Gemini, Claude, or a Fashion LLM independently, with round-robin Gemini key rotation on rate limits.',
-      },
     ],
     impact: {
       summary:
