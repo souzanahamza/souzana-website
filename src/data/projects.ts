@@ -6,6 +6,7 @@ import {
   BarChart3,
   Type,
   Database,
+  LineChart,
   type LucideIcon,
 } from 'lucide-react';
 
@@ -87,6 +88,13 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         alt: 'Seluze answering a follow-up size question and offering accessory suggestions with quick-reply buttons',
         caption:
           'Context-aware follow-ups — the shopper taps a product to ask about sizing, and Seluze answers from real measurement data, then proactively offers to style the look with quick-reply buttons (Bags & Clutches, Jewelry, Glasses) — just like a real sales associate upselling a complete outfit.',
+        tall: true,
+      },
+      {
+        src: '/projects/seluze/store-widget.png',
+        alt: 'Ask Seluze widget on a NONNA COLLECTION product page proactively suggesting an elegant bag to complete a pink tulle set',
+        caption:
+          'Storefront embed — Seluze lives directly on the merchant\'s product pages via a lightweight "Ask Seluze" widget. When a shopper views the Set Tull Pink, the assistant proactively suggests complementary accessories — turning passive browsing into a styled, complete-look conversation without leaving the page.',
         tall: true,
       },
       {
@@ -251,6 +259,110 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
         { value: '3', label: 'Pluggable LLM providers per stage' },
         { value: 'Multi-store', label: 'Per-store Qdrant catalogs & policies' },
         { value: 'Real-time', label: 'SSE streaming of agent reasoning' },
+      ],
+    },
+  },
+  {
+    slug: 'finmcp',
+    title: 'FinMCP',
+    category: 'AI/Finance',
+    tagline:
+      'A financial AI backend that unifies Yahoo Finance market data behind a FastMCP stdio server and a Gemini-powered REST chat API — one service layer, two consumption modes.',
+    icon: LineChart,
+    technologies: [
+      'Python',
+      'FastAPI',
+      'FastMCP',
+      'Google Gemini',
+      'yfinance',
+      'numpy',
+      'uvicorn',
+      'pydantic',
+    ],
+    codeLink: 'https://github.com/souzanahamza/finMCP',
+    overview: {
+      problem:
+        'AI assistants and frontend apps need reliable, structured financial data — quotes, financials, risk metrics, news sentiment, SEC filings — but wiring Yahoo Finance logic separately for each client (MCP desktop tools vs. web chat) leads to duplicated code, inconsistent payloads, and fragile integrations.',
+      summary:
+        'FinMCP centralizes all Yahoo Finance business logic in a shared service layer and exposes it through two run modes from a single entry point: a FastMCP stdio server with 15 tools for desktop AI clients, and a FastAPI REST API with a Gemini-powered /api/chat endpoint that uses automatic function calling for natural-language stock queries.',
+      highlights: [
+        '15 MCP tools covering quotes, financials, risk, news, options, and SEC filings',
+        'Dual run modes: stdio MCP server or FastAPI web API from one codebase',
+        'Gemini chat with automatic fetch_stock_price function calling',
+        'Shared market_data.py service layer — no duplicated yfinance logic',
+        'Configurable Gemini model via environment variables',
+      ],
+    },
+    architecture: {
+      description:
+        'main.py routes to either web (FastAPI) or stdio (FastMCP) mode. Both paths call the same app/services/market_data.py functions built on yfinance. The MCP server registers thin @mcp.tool() wrappers for Cursor and Claude Desktop. The FastAPI app adds CORS, a health check, and a POST /api/chat endpoint where Gemini decides when to invoke fetch_stock_price.',
+      diagram: `main.py
+├── web  → FastAPI (app/api.py) → Gemini + fetch_stock_price
+└── stdio → FastMCP (app/mcp_server.py) → 15 tools
+                    ↓
+         app/services/market_data.py (yfinance)`,
+      components: [
+        {
+          name: 'market_data.py Service Layer',
+          detail:
+            'Core yfinance business logic returning structured dict payloads for quotes, financials, dividends, options, risk metrics, news sentiment, and SEC filings.',
+        },
+        {
+          name: 'FastMCP Server (FinMCP-Core)',
+          detail:
+            '15 stdio tools — get_current_stock_price, get_financials, get_risk_metrics, get_news_sentiment, get_sec_filings, and more — plus session summary read/write.',
+        },
+        {
+          name: 'FastAPI REST API',
+          detail:
+            'CORS-enabled web server with GET /health and POST /api/chat for frontend clients, powered by Gemini with automatic function calling.',
+        },
+        {
+          name: 'Gemini Function Calling',
+          detail:
+            'The chat endpoint lets Gemini invoke fetch_stock_price when a natural-language query needs a live quote, with automatic retries on transient API errors.',
+        },
+        {
+          name: 'Dual Entry Point',
+          detail:
+            'py main.py web starts the FastAPI server on port 8000; py main.py alone launches the stdio MCP transport — no Gemini key required for MCP mode.',
+        },
+      ],
+    },
+    challenges: [
+      {
+        challenge:
+          'MCP desktop clients and web frontends need the same financial data but speak completely different protocols.',
+        solution:
+          'A single market_data.py service layer backs both FastMCP tool wrappers and the FastAPI/Gemini chat endpoint, keeping payloads consistent across consumption modes.',
+      },
+      {
+        challenge:
+          'Natural-language stock questions ("What is AAPL trading at?") should not require users to know ticker syntax or call tools manually.',
+        solution:
+          'The REST chat API uses Gemini function calling so the model automatically invokes fetch_stock_price when a quote is needed and returns a human-readable reply.',
+      },
+      {
+        challenge:
+          'Financial analysis spans many data types — fundamentals, risk, news, options, filings — each with different yfinance APIs and response shapes.',
+        solution:
+          'Fifteen focused MCP tools each wrap one concern (valuation metrics, sector comparison, earnings analysis, etc.) with normalized dict outputs.',
+      },
+      {
+        challenge:
+          'Desktop AI sessions need lightweight memory across tool calls without a database.',
+        solution:
+          'add_summary and read_summary tools persist session notes to app/data/summary.txt, giving MCP clients a simple file-based audit trail.',
+      },
+    ],
+    impact: {
+      summary:
+        'FinMCP gives developers and AI assistants a production-ready bridge to Yahoo Finance — whether embedded in Cursor via MCP or consumed by a frontend through REST. By unifying data access behind one service layer and offering both stdio and HTTP interfaces, it cuts integration time and keeps financial tooling consistent across desktop and web workflows.',
+      metrics: [
+        { value: '15', label: 'MCP tools for market data & analysis' },
+        { value: '2', label: 'Run modes: stdio MCP & FastAPI web' },
+        { value: '1', label: 'Shared yfinance service layer' },
+        { value: 'Gemini', label: 'Natural-language chat with auto tool calls' },
       ],
     },
   },
@@ -926,4 +1038,5 @@ export const projectIcons = {
   BarChart3,
   Type,
   Database,
+  LineChart,
 };

@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { CardAccentBar, CardIcon } from '@/components/ui/card-icon';
 import { sectionCardClass } from '@/lib/card-styles';
 import { cn } from '@/lib/utils';
-import { ExternalLink, Github, TrendingUp, BarChart3, Database, FileText, Type, ShoppingBag, Globe, Printer, ArrowRight } from 'lucide-react';
+import { ExternalLink, Github, TrendingUp, BarChart3, Database, FileText, Type, ShoppingBag, Globe, Printer, ArrowRight, LineChart } from 'lucide-react';
 
 const ProjectsSection = () => {
   const projects = [
@@ -17,6 +17,15 @@ const ProjectsSection = () => {
       category: "AI/GenAI & E-commerce",
       demoLink: "https://seluze.vercel.app/",
       caseStudySlug: "seluze-ai-agent"
+    },
+    {
+      title: "FinMCP",
+      description: "Financial AI backend exposing Yahoo Finance market data through a FastMCP stdio server (15 tools) and a Gemini-powered REST chat API. A shared yfinance service layer delivers stock quotes, financials, risk metrics, news sentiment, and SEC filings — consumable by MCP clients like Cursor and Claude Desktop, or any frontend via REST.",
+      technologies: ["Python", "FastAPI", "FastMCP", "Gemini", "yfinance"],
+      icon: LineChart,
+      category: "AI/Finance",
+      githubLink: "https://github.com/souzanahamza/finMCP",
+      caseStudySlug: "finmcp"
     },
     {
       title: "Printava | Print Shop SaaS ERP (Beta)",

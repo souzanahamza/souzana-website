@@ -202,9 +202,9 @@ const ProjectDetails = () => {
             )}
           </section>
 
-          {/* 3. Technical Challenges & Solutions */}
+          {/* 3. Challenges & Solutions */}
           <section className="space-y-8 animate-fade-in-up">
-            <SectionHeading icon={Zap} label="03" title="Technical Challenges & Solutions" />
+            <SectionHeading icon={Zap} label="03" title="Challenges & Solutions" />
 
             <div className="space-y-5">
               {project.challenges.map((item, index) => (
