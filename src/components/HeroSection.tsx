@@ -1,3 +1,6 @@
+const badgeClass =
+  "hover-wiggle cursor-default px-4 py-2 bg-primary/5 border border-primary/20 rounded-full font-mono text-sm font-medium text-primary";
+
 const HeroSection = () => {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
@@ -36,16 +39,16 @@ const HeroSection = () => {
 
               {/* Quick Highlights Badges */}
               <div className="flex flex-wrap justify-center gap-3 mt-8">
-                <div className="hover-wiggle cursor-default px-4 py-2 bg-touch-light border border-touch/30 rounded-full font-mono text-sm font-medium text-primary">
+                <div className={badgeClass}>
                   🧠 Fluent in AI × Finance
                 </div>
-                <div className="hover-wiggle cursor-default px-4 py-2 bg-touch-light border border-touch/30 rounded-full font-mono text-sm font-medium text-primary">
+                <div className={badgeClass}>
                   🔮 Predicts the future (statistically)
                 </div>
-                <div className="hover-wiggle cursor-default px-4 py-2 bg-touch-light border border-touch/30 rounded-full font-mono text-sm font-medium text-primary">
+                <div className={badgeClass}>
                   🤖 Trains AI agents to behave
                 </div>
-                <div className="hover-wiggle cursor-default px-4 py-2 bg-touch-light border border-touch/30 rounded-full font-mono text-sm font-medium text-primary">
+                <div className={badgeClass}>
                   😴 Automates the boring stuff
                 </div>
               </div>
