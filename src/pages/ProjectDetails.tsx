@@ -164,9 +164,42 @@ const ProjectDetails = () => {
             )}
           </section>
 
-          {/* 2. Architecture & Technologies */}
+          {/* 2. Screenshots & Walkthrough */}
+          {hasImages && (
+            <section className="space-y-8 animate-fade-in-up">
+              <SectionHeading icon={ImageIcon} label="02" title="Screenshots & Walkthrough" />
+              <div className="grid gap-10 sm:grid-cols-2">
+                {project.images!.map((image) => (
+                  <figure
+                    key={image.src}
+                    className={`space-y-3 ${image.tall ? '' : 'sm:col-span-2'}`}
+                  >
+                    <Card
+                      className={`overflow-hidden border-border/50 shadow-card hover:shadow-glow transition-smooth ${
+                        image.tall ? 'max-w-sm mx-auto w-full' : ''
+                      }`}
+                    >
+                      <img
+                        src={image.src}
+                        alt={image.alt}
+                        loading="lazy"
+                        className="w-full h-auto object-cover"
+                      />
+                    </Card>
+                    {image.caption && (
+                      <figcaption className="text-sm text-muted-foreground leading-relaxed max-w-3xl">
+                        {image.caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {/* 3. Architecture & Technologies */}
           <section className="space-y-8 animate-fade-in-up">
-            <SectionHeading icon={Layers} label="02" title="Architecture & Technologies" />
+            <SectionHeading icon={Layers} label="03" title="Architecture & Technologies" />
 
             <p className="text-muted-foreground leading-relaxed text-lg">
               {project.architecture.description}
@@ -202,9 +235,9 @@ const ProjectDetails = () => {
             )}
           </section>
 
-          {/* 3. Challenges & Solutions */}
+          {/* 4. Challenges & Solutions */}
           <section className="space-y-8 animate-fade-in-up">
-            <SectionHeading icon={Zap} label="03" title="Challenges & Solutions" />
+            <SectionHeading icon={Zap} label="04" title="Challenges & Solutions" />
 
             <div className="space-y-5">
               {project.challenges.map((item, index) => (
@@ -240,40 +273,7 @@ const ProjectDetails = () => {
             </div>
           </section>
 
-          {/* Optional gallery (safe rendering) */}
-          {hasImages && (
-            <section className="space-y-8 animate-fade-in-up">
-              <SectionHeading icon={ImageIcon} label="04" title="Screenshots & Walkthrough" />
-              <div className="grid gap-10 sm:grid-cols-2">
-                {project.images!.map((image) => (
-                  <figure
-                    key={image.src}
-                    className={`space-y-3 ${image.tall ? '' : 'sm:col-span-2'}`}
-                  >
-                    <Card
-                      className={`overflow-hidden border-border/50 shadow-card hover:shadow-glow transition-smooth ${
-                        image.tall ? 'max-w-sm mx-auto w-full' : ''
-                      }`}
-                    >
-                      <img
-                        src={image.src}
-                        alt={image.alt}
-                        loading="lazy"
-                        className="w-full h-auto object-cover"
-                      />
-                    </Card>
-                    {image.caption && (
-                      <figcaption className="text-sm text-muted-foreground leading-relaxed max-w-3xl">
-                        {image.caption}
-                      </figcaption>
-                    )}
-                  </figure>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* 4. Business Impact — prominent highlight box */}
+          {/* Business Impact — prominent highlight box */}
           <section className="animate-fade-in-up">
             <Card className="relative overflow-hidden border-0 shadow-glow">
               <div className="absolute inset-0 gradient-hero opacity-95" aria-hidden="true" />
