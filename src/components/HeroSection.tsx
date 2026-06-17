@@ -4,8 +4,8 @@ const HeroSection = () => {
       {/* Animated Background */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
-        <div className="absolute top-40 right-10 w-72 h-72 bg-accent rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
-        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-500"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-touch rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
+        <div className="absolute -bottom-8 left-20 w-72 h-72 bg-touch-light rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-500"></div>
       </div>
 
       {/* Floating Emoji Mascots */}
@@ -36,16 +36,16 @@ const HeroSection = () => {
 
               {/* Quick Highlights Badges */}
               <div className="flex flex-wrap justify-center gap-3 mt-8">
-                <div className="hover-wiggle cursor-default px-4 py-2 bg-primary/10 border border-primary/20 rounded-full font-mono text-sm font-medium text-primary">
+                <div className="hover-wiggle cursor-default px-4 py-2 bg-touch-light border border-touch/30 rounded-full font-mono text-sm font-medium text-primary">
                   🧠 Fluent in AI × Finance
                 </div>
-                <div className="hover-wiggle cursor-default px-4 py-2 bg-primary/10 border border-primary/20 rounded-full font-mono text-sm font-medium text-primary">
+                <div className="hover-wiggle cursor-default px-4 py-2 bg-touch-light border border-touch/30 rounded-full font-mono text-sm font-medium text-primary">
                   🔮 Predicts the future (statistically)
                 </div>
-                <div className="hover-wiggle cursor-default px-4 py-2 bg-primary/10 border border-primary/20 rounded-full font-mono text-sm font-medium text-primary">
+                <div className="hover-wiggle cursor-default px-4 py-2 bg-touch-light border border-touch/30 rounded-full font-mono text-sm font-medium text-primary">
                   🤖 Trains AI agents to behave
                 </div>
-                <div className="hover-wiggle cursor-default px-4 py-2 bg-primary/10 border border-primary/20 rounded-full font-mono text-sm font-medium text-primary">
+                <div className="hover-wiggle cursor-default px-4 py-2 bg-touch-light border border-touch/30 rounded-full font-mono text-sm font-medium text-primary">
                   😴 Automates the boring stuff
                 </div>
               </div>

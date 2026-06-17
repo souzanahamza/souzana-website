@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Download } from 'lucide-react';
-import ThemeToggle from './ThemeToggle';
-
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,7 +57,6 @@ const Header = () => {
               </a>
             ))}
             <div className="flex items-center space-x-3 ml-4">
-              <ThemeToggle />
               <Button variant="outline" size="sm" asChild>
                 <a href="https://drive.google.com/file/d/1tQaCY5FmV0vgXZCp4C1oxZyoVl9yMItF/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
                   <Download className="w-4 h-4" />
@@ -71,7 +68,6 @@ const Header = () => {
 
           {/* Mobile Actions */}
           <div className="md:hidden flex items-center space-x-2">
-            <ThemeToggle />
             <Button
               variant="ghost"
               size="sm"

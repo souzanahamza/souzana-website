@@ -109,11 +109,11 @@ const CertificationsSection = () => {
                   
                   <div className="space-y-2 text-sm text-muted-foreground">
                     <div className="flex items-center gap-2">
-                      <CheckCircle className="w-4 h-4 text-accent" />
+                      <CheckCircle className="w-4 h-4 text-touch" />
                       <span className="font-medium">Issuer:</span> {cert.issuer}
                     </div>
                     <div className="flex items-center gap-2 font-mono">
-                      <Calendar className="w-4 h-4 text-accent" />
+                      <Calendar className="w-4 h-4 text-touch" />
                       <span className="font-medium">Issued:</span> {cert.issued}
                     </div>
                     <div className="flex items-center gap-2">

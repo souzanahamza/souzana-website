@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss";
 
 export default {
-  darkMode: ["class"],
   content: ["./pages/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}", "./app/**/*.{ts,tsx}", "./src/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
@@ -43,6 +42,11 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+        },
+        touch: {
+          DEFAULT: "hsl(var(--touch))",
+          light: "hsl(var(--touch-light))",
+          foreground: "hsl(var(--touch-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",

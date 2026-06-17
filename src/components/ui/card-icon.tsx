@@ -13,7 +13,7 @@ const iconVariants = {
   primary:
     "bg-primary/10 ring-primary/10 group-hover:bg-primary/15 group-hover:ring-primary/30",
   accent:
-    "bg-accent/10 ring-accent/10 group-hover:bg-accent/15 group-hover:ring-accent/30",
+    "bg-touch-light ring-touch/20 group-hover:bg-touch-light group-hover:ring-touch/40",
 } as const;
 
 interface CardIconProps {
@@ -24,7 +24,7 @@ interface CardIconProps {
 
 /**
  * Uniform square icon box used across all section cards.
- * Defaults to the primary (blue) accent; pass `variant="accent"` for purple.
+ * Defaults to the primary navy accent; pass `variant="accent"` for coral pink touches.
  */
 export const CardIcon = ({ icon: Icon, variant = 'primary', className }: CardIconProps) => (
   <div
@@ -34,6 +34,6 @@ export const CardIcon = ({ icon: Icon, variant = 'primary', className }: CardIco
       className,
     )}
   >
-    <Icon className={cn("h-6 w-6", variant === 'accent' ? "text-accent" : "text-primary")} />
+    <Icon className={cn("h-6 w-6", variant === 'accent' ? "text-touch" : "text-primary")} />
   </div>
 );
