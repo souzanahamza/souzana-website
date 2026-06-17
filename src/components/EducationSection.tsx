@@ -66,7 +66,7 @@ const EducationSection = () => {
                           <h3 className="text-lg sm:text-xl font-semibold text-foreground leading-snug max-w-md group-hover:text-primary transition-smooth">
                             {edu.degree}
                           </h3>
-                          <span className="inline-flex items-center gap-1.5 shrink-0 rounded-full bg-primary/10 border border-primary/20 px-3 py-1 text-xs font-medium text-primary">
+                          <span className="inline-flex items-center gap-1.5 shrink-0 rounded-full bg-primary/10 border border-primary/20 px-3 py-1 font-mono text-xs font-medium text-primary">
                             <Calendar className="w-3.5 h-3.5" />
                             {edu.period}
                           </span>

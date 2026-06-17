@@ -41,7 +41,7 @@ const Header = () => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }}
-            className="text-2xl font-bold gradient-hero bg-clip-text text-transparent hover:scale-105 transition-bounce"
+            className="font-serif text-2xl font-bold gradient-hero bg-clip-text text-transparent hover:scale-105 transition-bounce"
           >
             SOUZANA
           </a>

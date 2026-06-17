@@ -207,7 +207,7 @@ const ProjectDetails = () => {
 
             {project.architecture.diagram && (
               <Card className="overflow-hidden border-border/50 shadow-card">
-                <div className="bg-muted/40 px-4 py-2 border-b border-border/50 text-xs uppercase tracking-wider text-muted-foreground">
+                <div className="bg-muted/40 px-4 py-2 border-b border-border/50 font-mono text-xs uppercase tracking-wider text-muted-foreground">
                   System Architecture
                 </div>
                 <pre className="p-6 overflow-x-auto text-sm leading-relaxed text-foreground/90 font-mono">
@@ -250,7 +250,7 @@ const ProjectDetails = () => {
                     <div className="p-6 md:p-8 bg-destructive/5 md:border-r border-b md:border-b-0 border-border/50 space-y-3">
                       <div className="flex items-center gap-2 text-destructive">
                         <AlertTriangle className="w-4 h-4" />
-                        <span className="text-xs font-semibold uppercase tracking-wider">
+                        <span className="font-mono text-xs font-semibold uppercase tracking-wider">
                           Challenge
                         </span>
                       </div>
@@ -261,7 +261,7 @@ const ProjectDetails = () => {
                     <div className="p-6 md:p-8 bg-primary/5 space-y-3">
                       <div className="flex items-center gap-2 text-primary">
                         <CheckCircle2 className="w-4 h-4" />
-                        <span className="text-xs font-semibold uppercase tracking-wider">
+                        <span className="font-mono text-xs font-semibold uppercase tracking-wider">
                           Solution
                         </span>
                       </div>
@@ -284,7 +284,7 @@ const ProjectDetails = () => {
                     <TrendingUp className="w-6 h-6" />
                   </div>
                   <div>
-                    <span className="text-xs font-semibold uppercase tracking-widest opacity-80">
+                    <span className="font-mono text-xs font-semibold uppercase tracking-widest opacity-80">
                       Business Impact
                     </span>
                     <h2 className="text-2xl md:text-3xl font-bold">Why It Matters</h2>

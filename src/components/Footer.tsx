@@ -35,7 +35,7 @@ const Footer = () => {
           <div className="space-y-4">
             <button
               onClick={scrollToTop}
-              className="text-2xl font-bold gradient-hero bg-clip-text text-transparent hover:scale-105 transition-bounce inline-block"
+              className="font-serif text-2xl font-bold gradient-hero bg-clip-text text-transparent hover:scale-105 transition-bounce inline-block"
             >
               SOUZANA
             </button>

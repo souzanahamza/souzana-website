@@ -96,7 +96,7 @@ const ExperienceSection = () => {
                             <MapPin className="w-4 h-4" />
                             {exp.location}
                           </div>
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-2 font-mono">
                             <Calendar className="w-4 h-4" />
                             {exp.period}
                           </div>
