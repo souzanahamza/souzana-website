@@ -9,12 +9,10 @@ const HeroSection = () => {
       </div>
 
       {/* Floating Emoji Mascots */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <span className="absolute top-24 left-[12%] text-4xl animate-float-around select-none">🤖</span>
-        <span className="absolute top-1/3 right-[10%] text-5xl animate-float-around select-none" style={{ animationDelay: '1.5s', animationDuration: '14s' }}>📊</span>
-        <span className="absolute bottom-28 left-[18%] text-4xl animate-float-around select-none" style={{ animationDelay: '3s', animationDuration: '10s' }}>☕</span>
-        <span className="absolute bottom-1/3 right-[16%] text-3xl animate-float-around select-none" style={{ animationDelay: '0.8s', animationDuration: '13s' }}>✨</span>
-        <span className="absolute top-1/2 left-[6%] text-3xl animate-float-around select-none" style={{ animationDelay: '2.2s', animationDuration: '11s' }}>💸</span>
+      <div className="absolute inset-0 pointer-events-none overflow-hidden opacity-30" aria-hidden="true">
+        <span className="absolute top-24 left-[12%] text-3xl animate-float-around select-none">🤖</span>
+        <span className="absolute top-1/3 right-[10%] text-3xl animate-float-around select-none" style={{ animationDelay: '1.5s', animationDuration: '14s' }}>📊</span>
+        <span className="absolute bottom-1/3 right-[16%] text-2xl animate-float-around select-none" style={{ animationDelay: '0.8s', animationDuration: '13s' }}>✨</span>
       </div>
 
       <div className="container mx-auto px-6 pt-20 flex-1 flex items-center">
@@ -58,7 +56,6 @@ const HeroSection = () => {
 
       {/* Scroll Indicator */}
       <a href="#projects" className="group relative z-10 flex flex-col items-center gap-2 pt-12 pb-8 text-muted-foreground hover:text-primary transition-smooth">
-        <span className="text-xs font-medium opacity-70 group-hover:opacity-100">scroll, I worked hard on this 👇</span>
         <div className="animate-bounce">
           <div className="w-6 h-10 border-2 border-current rounded-full p-1">
             <div className="w-1 h-3 bg-current rounded-full mx-auto animate-pulse"></div>
